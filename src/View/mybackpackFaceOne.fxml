@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.2957393483709273" layoutX="268.0" layoutY="211.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="278.0">
+               <children>
+                  <Label layoutX="7.0" layoutY="161.0" text="Погода" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="5.0" layoutY="174.0" AnchorPane.leftAnchor="5.0" />
+                  <Label layoutX="7.0" layoutY="386.0" text="Длительность похода" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="42.0" text="Параметры поиска" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="4.0" layoutY="84.0" spacing="5.0" AnchorPane.leftAnchor="5.0" />
+                  <HBox layoutX="5.0" layoutY="333.0" spacing="5.0" AnchorPane.leftAnchor="5.0" />
+                  <TextField layoutX="10.0" layoutY="413.0" prefHeight="20.0" prefWidth="40.0" AnchorPane.leftAnchor="5.0" />
+                  <ChoiceBox layoutX="50.0" layoutY="413.0" prefHeight="24.0" prefWidth="92.0" AnchorPane.leftAnchor="50.0" />
+                  <Button layoutX="100.0" layoutY="448.0" mnemonicParsing="false" text="Составить список" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" />
+                  <Label layoutX="5.0" layoutY="230.0" text="Атмосферные явления:" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox layoutX="-1.0" layoutY="249.0" prefHeight="24.0" prefWidth="150.0" AnchorPane.leftAnchor="5.0" />
+                  <Label layoutX="7.0" layoutY="273.0" text="Ветер:" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox layoutX="5.0" layoutY="293.0" prefWidth="150.0" AnchorPane.leftAnchor="5.0" />
+                  <ChoiceBox layoutX="5.0" layoutY="353.0" prefWidth="150.0" AnchorPane.leftAnchor="5.0" />
+                  <Label layoutX="5.0" layoutY="326.0" text="Рельеф местности" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="208.0" text="от" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="31.0" layoutY="206.0" prefHeight="20.0" prefWidth="50.0" AnchorPane.leftAnchor="31.0" />
+                  <Label layoutX="92.0" layoutY="208.0" text="до" AnchorPane.leftAnchor="85.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="113.0" layoutY="206.0" prefHeight="20.0" prefWidth="50.0" AnchorPane.leftAnchor="105.0" />
+                  <Label layoutX="8.0" layoutY="188.0" text="Диапазон температуры:" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="9.0" layoutY="45.0" text="Личные данные" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="76.0" text="Вес:" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="9.0" layoutY="129.0" text="Возраст:" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="8.0" layoutY="102.0" text="Пол:" AnchorPane.leftAnchor="5.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="37.0" layoutY="74.0" prefHeight="24.0" prefWidth="50.0" AnchorPane.leftAnchor="37.0" />
+                  <CheckBox layoutX="45.0" layoutY="102.0" mnemonicParsing="false" text="М">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox layoutX="89.0" layoutY="102.0" mnemonicParsing="false" text="Ж">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField layoutX="62.0" layoutY="127.0" prefWidth="50.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="448.0">
+               <children>
+                  <Label layoutX="68.0" layoutY="39.0" text="Список" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="66.0" layoutY="460.0" spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                     <children>
+                        <Button layoutX="224.0" layoutY="460.0" mnemonicParsing="false" text="Добавить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="159.0" />
+                        <Button layoutX="299.0" layoutY="460.0" mnemonicParsing="false" text="Удалить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="92.0" />
+                        <Button layoutX="368.0" layoutY="460.0" mnemonicParsing="false" text="Сохранить" />
+                        <Button mnemonicParsing="false" text="Открыть СпортМастер" />
+                        <Button mnemonicParsing="false" text="Вернуться в меню" />
+                     </children>
+                  </HBox>
+                  <TableView layoutX="124.0" layoutY="126.0" maxHeight="498.0" maxWidth="448.0" prefHeight="498.0" prefWidth="448.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0">
+                    <columns>
+                      <TableColumn maxWidth="418.0" minWidth="418.0" prefWidth="418.0" text="Предмет" />
+                      <TableColumn maxWidth="130.0" minWidth="130.0" prefWidth="130.0" resizable="false" text="Кол-во" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

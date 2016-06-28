@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label contentDisplay="CENTER" layoutX="298.0" layoutY="21.0" text="Мой Рюкзак" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TableView layoutX="14.0" layoutY="116.0" prefHeight="435.0" prefWidth="580.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="115.0">
+        <columns>
+          <TableColumn prefWidth="397.0" text="Предмет" />
+          <TableColumn minWidth="0.0" prefWidth="192.0" text="Кол-во" />
+        </columns>
+      </TableView>
+      <HBox layoutX="5.0" layoutY="70.0" spacing="10.0">
+         <children>
+            <Button layoutX="582.0" layoutY="70.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="90.0" text="Добавить" AnchorPane.leftAnchor="5.0" />
+            <Button layoutX="119.0" layoutY="70.0" mnemonicParsing="false" prefWidth="90.0" text="Удалить" AnchorPane.leftAnchor="119.0" />
+            <Button layoutX="223.0" layoutY="70.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="90.0" text="Сохранить" AnchorPane.leftAnchor="223.0" />
+            <Button layoutX="343.0" layoutY="70.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="170.0" text="Открыть СпортМастер" AnchorPane.leftAnchor="343.0" />
+         </children>
+      </HBox>
+      <ListView layoutX="609.0" layoutY="115.0" prefHeight="200.0" prefWidth="183.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="5.0" />
+      <Label layoutX="612.0" layoutY="94.0" text="Мои рюкзаки:" />
+      <Button layoutX="678.0" layoutY="562.0" mnemonicParsing="false" text="Вернуться в меню" />
+   </children>
+</AnchorPane>
