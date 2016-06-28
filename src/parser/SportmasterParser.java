@@ -73,11 +73,11 @@ public class SportmasterParser {
 	 * @throws MalformedURLException - if the request URL is not a HTTP 
 	 * 		        or HTTPS URL, or is otherwise malformed 
 	 *  	   HttpStatusException - if the response is not OK 
-	 *  	        and HTTP response errors are not ignored 		              
-	 *		   UnsupportedMimeTypeException - if the response mime type is not supported 
+	 *  	                and HTTP response errors are not ignored 		              
+	 *         UnsupportedMimeTypeException - if the response mime type is not supported 
 	 *		        and those errors are not ignored 						  
-     *         SocketTimeoutException - if the connection times out 
- 	 *		   IOException - on error 
+         *         SocketTimeoutException - if the connection times out 
+ 	 *	   IOException - on error 
 	 */
 	public final List<Product> query(String itemName) throws IOException{
 		String search = Util.asHtmlHex(itemName);
