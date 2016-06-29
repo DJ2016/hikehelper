@@ -26,4 +26,9 @@ public class Controller {
 	public void onSearchOnSportmasterClicked() throws IOException{
 		App.setFrame(FXMLFrameLoader.getSportmasterFrame());
 	}
+	
+	@FXML
+	public void onReturnToMenuClicked() throws IOException{
+		App.setFrame(FXMLFrameLoader.getMainFrame());
+	}
 }
