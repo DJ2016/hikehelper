@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.collections.FXCollections?> 
+
 <AnchorPane prefHeight="600.0" 
 	        prefWidth="800.0" 
 	        xmlns="http://javafx.com/javafx/8" 
