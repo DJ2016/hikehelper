@@ -1,9 +1,7 @@
 package parser;
 
-import javafx.beans.property.StringProperty;
-import javafx.beans.property.SimpleStringProperty;
 
-public class Product {
+public class Product implements Comparable<Product>{
 
 	public Product(){}
 	public Product(String name){
@@ -59,5 +57,10 @@ public class Product {
 	}
 	public void setProductID(String productID) {
 		this.productID = productID;
+	}
+	
+	@Override
+	public int compareTo(Product arg0) {
+		return Integer.parseInt(getPrice()) - Integer.parseInt(arg0.getPrice());
 	}
 }

@@ -57,12 +57,8 @@ public class Controller{
 									.observableArrayList(
 											new SportmasterParser()
 												.query(str));
-			list.sort(new Comparator<Product>(){
-				@Override
-				public int compare(Product o1, Product o2) {
-					return Integer.parseInt(o1.getPrice()) - Integer.parseInt(o2.getPrice());
-				}});
-			
+
+			FXCollections.sort(list);
 			tableView.setItems(list);
 			tableView.setVisible(true);
 		}
