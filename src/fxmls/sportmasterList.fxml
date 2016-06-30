@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import parser.*?>
-
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.collections.FXCollections?> 
+
 <AnchorPane prefHeight="600.0" 
 	        prefWidth="800.0" 
 	        xmlns="http://javafx.com/javafx/8" 
@@ -26,15 +23,13 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id = "searchField"
-      			 layoutX="14.0" 
+      <TextField layoutX="14.0" 
       			 layoutY="49.0" 
       			 prefHeight="24.0" 
       			 prefWidth="337.0" 
-      			 AnchorPane.leftAnchor="10.0"/>
+      			 AnchorPane.leftAnchor="10.0" />
       			 
-      <TableView fx:id = "tableView"
-      			 layoutX="83.0" 
+      <TableView layoutX="83.0" 
       			 layoutY="170.0" 
       			 prefHeight="500.0" 
       			 prefWidth="443.0" 
@@ -42,22 +37,9 @@
       			 AnchorPane.leftAnchor="10.0" 
       			 AnchorPane.topAnchor="80.0">
         <columns>
-          <TableColumn fx:id="firstColumn" prefWidth="315.0"  text="Наименование товара">
-          		<cellValueFactory>
-            			<PropertyValueFactory property="name" />
-            	</cellValueFactory>
-            	
-          </TableColumn>
-            
-          <TableColumn fx:id="lastColumn" prefWidth="127.0"  text="Цена">
-          		<cellValueFactory>
-                		<PropertyValueFactory property="price" />
-            	</cellValueFactory>
-          </TableColumn>
+          <TableColumn prefWidth="315.0" text="Наименование товара" />
+          <TableColumn prefWidth="127.0" text="Цена" />
         </columns>
-        <sortOrder>
-          <fx:reference source="lastColumn"/>
-     	</sortOrder> 
       </TableView>
       <Label layoutX="400.0" layoutY="48.0" text="Мой Рюкзак" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="48.0">
          <font>
@@ -76,10 +58,8 @@
           <TableColumn prefWidth="232.0" text="Предмет" />
           <TableColumn maxWidth="95.0" minWidth="95.0" prefWidth="95.0" text="Кол-во" />
         </columns>
- 
-        
       </TableView>
-      <Button fx:id = "buttonSearch" onAction="#onSearchedClicked" layoutX="360.0" layoutY="49.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="93.0" text="Поиск" />
+      <Button layoutX="360.0" layoutY="49.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="93.0" text="Поиск" />
       <Button fx:id="returnToMenu" onAction="#onReturnToMenuClicked" layoutX="686.0" layoutY="574.0" mnemonicParsing="false" text="Вернуться в меню" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="6.0" />
    </children>
 </AnchorPane>

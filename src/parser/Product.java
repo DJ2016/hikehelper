@@ -1,8 +1,5 @@
 package parser;
 
-import javafx.beans.property.StringProperty;
-import javafx.beans.property.SimpleStringProperty;
-
 public class Product {
 
 	public Product(){}
@@ -25,7 +22,6 @@ public class Product {
 	private String imgsource;
 	private String productID;
 	
-
 	public String getName() {
 		return name;
 	}
