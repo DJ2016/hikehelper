@@ -4,13 +4,18 @@ import java.io.IOException;
 import java.util.Comparator;
 
 import fxmls.FXMLFrameLoader;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.IntegerBinding;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
 import javafx.scene.control.TextField;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableSet;
 import parser.Product;
 import parser.SportmasterParser;
 
@@ -18,8 +23,25 @@ public class Controller{
 	
 	@FXML private TextField searchField;
 	@FXML private TableView<Product> tableView;
+	@FXML private CheckBox checkBox1;
+	@FXML private CheckBox checkBox2;
 	
-	
+	@FXML
+	public void isChecked(){
+		if (checkBox1.isSelected()){
+			checkBox2.setDisable(true);
+		}
+		if (!checkBox1.isSelected()){
+			checkBox2.setDisable(false);
+		}
+		if(checkBox2.isSelected()){
+			checkBox1.setDisable(true);
+		}
+		if (!checkBox2.isSelected()){
+			checkBox1.setDisable(false);
+		}
+		
+	}
 	@FXML
     public void onFindYourSelfListButtonClicked() throws IOException{
 		App.setFrame(FXMLFrameLoader.getYourselfListFrame());
@@ -62,8 +84,7 @@ public class Controller{
 			tableView.setItems(list);
 			tableView.setVisible(true);
 		}
-	}
-
+	}	
 
 	private void hideTooltip(){
 		tip.hide();

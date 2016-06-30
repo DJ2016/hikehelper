@@ -3,6 +3,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.collections.*?>
+<?import javafx.scene.control.CheckBox?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -111,12 +112,12 @@
                      </font>
                   </Label>
                   <TextField layoutX="37.0" layoutY="74.0" prefHeight="24.0" prefWidth="50.0" AnchorPane.leftAnchor="37.0" />
-                  <CheckBox layoutX="45.0" layoutY="102.0" mnemonicParsing="false" text="М">
+                  <CheckBox fx:id="checkBox1" onAction="#isChecked" layoutX="45.0" layoutY="102.0" mnemonicParsing="false" text="М">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox layoutX="89.0" layoutY="102.0" mnemonicParsing="false" text="Ж">
+                  <CheckBox fx:id="checkBox2" onAction="#isChecked" layoutX="89.0" layoutY="102.0" mnemonicParsing="false" text="Ж">
                      <font>
                         <Font size="14.0" />
                      </font>
