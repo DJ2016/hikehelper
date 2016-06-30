@@ -10,11 +10,25 @@ public class SQLConnection {
 	protected static Connection connection;
 	protected static Statement statement;
 	protected static ResultSet set;
-	
+
 	protected static final class Tables {
 		public static final String weather = "Weather";
+		public static final String user = "User";
+		public static final String checkList = "CheckList";
+		public static final String topography = "Topography";
+		public static final String countPersons = "CountPersons";
+		public static final String countDay = "CountDay";
 		//TODO: ADD OTHER TABLES HERE
 	}
+	protected static final class Param {	
+		public static final String nameThing = "nameThing";
+		public static final String range = "range";
+		public static final String precipitation = "precipitation";
+		public static final String tipeTp = "tipeTP";
+		public static final String countPR = "countPR";
+		public static final String countD = "countD";
+	}
+
 
 	protected static Statement connect() throws ClassNotFoundException, SQLException {
 		//TODO: ADD THIS 
@@ -24,12 +38,21 @@ public class SQLConnection {
 		statement = connection.createStatement();
 		return statement;
 	}
-	
+
 	protected static void create(String tableName) throws ClassNotFoundException, SQLException {
 		statement.execute("CREATE TABLE if not exists " + tableName +
 				//TODO: SET ADD THIS
 				" id INTEGER PRIMARY KEY AUTOINCREMENT, ;");
 	}
+	protected static void seach (PrintStream ps, String tableName, Param nameThing, Param range, Param precipitation, Param tipeTp, Param countPR, Param countD) 
+			throws ClassNotFoundException, SQLException {
+			set = statement.executeQuery("SELECT nameThing FROM " + tableName + "where Things.tipe=1");
+			set = statement.executeQuery("SELECT nameThing FROM " + tableName + "inner join Weather on Things.idThing=Weather.idThinginner join Topography on Things.idThing=Topography.idThing inner join CountPersons "
+			+ "on Things.idThing=CountPersons.idThing inner join CountDay "
+			+ "on Things.idThing=CountDay.idThing where range=" +range +"and precipitation="+precipitation +"and tipeTP="+tipeTp+"and countD="+countD);
+			while (set.next()) {
+			ps.print("Thing = "+ set.getString("idThing"));
+			}
 	
 	protected static void insert(String tableName, String values) throws SQLException, ClassNotFoundException {
 		//TODO: COMPLETE THIS
@@ -43,12 +66,12 @@ public class SQLConnection {
 			ps.println();
 		}
 	}
-	
-	
+
+
 	protected static void delete(String tableName) throws ClassNotFoundException, SQLException {
 		statement.execute("DROP TABLE '" + tableName + "';");
 	}
-	
+
 	protected static void close() throws SQLException {
 		if (!statement.isClosed())
 			statement.close();
