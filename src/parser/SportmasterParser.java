@@ -1,21 +1,17 @@
 package parser;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.xml.bind.DatatypeConverter;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class SportmasterParser {
 	
@@ -23,7 +19,7 @@ public class SportmasterParser {
 	
 	protected String defaultUrl = "http://www.sportmaster.ru/catalog/product/search.do?text=";
 	protected String sortedUrl = "http://www.sportmaster.ru/catalog/product/search.do?sortOrder=ASC&sortBy=price&text=";
-	protected String url = sortedUrl;
+	protected String url = defaultUrl;
 	protected String className = "sm-category__item";
 	protected String dataClass = "js-compare-link";
 	protected String tagCount = "h1";
@@ -98,4 +94,5 @@ public class SportmasterParser {
 		}
 		return list;
 	}
+
 }
