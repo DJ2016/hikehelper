@@ -40,7 +40,7 @@ public class Things {
 		this.thingName = thing;
 		this.quantity = quantity;
 	}
-	
+	/*
 	protected static List <Things> seach (String tableName, Param params) throws ClassNotFoundException, SQLException {
 		//List <Thing> list = new List();
 		//CONECT JDBS?
@@ -51,6 +51,6 @@ public class Things {
 		while (set.next()) {
 		list+=set.getString();
 		}
-	}
+	}*/
 
 }
