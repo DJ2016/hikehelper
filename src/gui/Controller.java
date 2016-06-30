@@ -18,10 +18,29 @@ public class Controller{
 	
 	@FXML private TextField searchField;
 	@FXML private TableView<Product> tableView;
-	@FXML private CheckBox checkBox1;
-	@FXML private CheckBox checkBox2;
+	@FXML private CheckBox male;
+	@FXML private CheckBox female;
 	
 	@FXML
+<<<<<<< HEAD
+=======
+	public void isChecked(){
+		if (male.isSelected()){
+			female.setDisable(true);
+		}
+		if (!male.isSelected()){
+			female.setDisable(false);
+		}
+		if(female.isSelected()){
+			male.setDisable(true);
+		}
+		if (!female.isSelected()){
+			male.setDisable(false);
+		}
+		
+	}
+	@FXML
+>>>>>>> origin/master
     public void onFindYourSelfListButtonClicked() throws IOException{
 		App.setFrame(FXMLFrameLoader.getYourselfListFrame());
     }
