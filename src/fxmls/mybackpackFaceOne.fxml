@@ -118,7 +118,7 @@
                         <Button layoutX="224.0" layoutY="460.0" mnemonicParsing="false" text="Добавить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="159.0" />
                         <Button layoutX="299.0" layoutY="460.0" mnemonicParsing="false" text="Удалить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="92.0" />
                         <Button layoutX="368.0" layoutY="460.0" mnemonicParsing="false" text="Сохранить" />
-                        <Button mnemonicParsing="false" text="Открыть СпортМастер" />
+                        <Button onAction="#onSearchOnSportmasterClicked" mnemonicParsing="false" text="Открыть СпортМастер" />
                         <Button onAction="#onReturnToMenuClicked" mnemonicParsing="false" text="Вернуться в меню" />
                      </children>
                   </HBox>

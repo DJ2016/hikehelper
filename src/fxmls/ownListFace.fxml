@@ -31,7 +31,7 @@
             <Button layoutX="582.0" layoutY="70.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="90.0" text="Добавить" AnchorPane.leftAnchor="5.0" />
             <Button layoutX="119.0" layoutY="70.0" mnemonicParsing="false" prefWidth="90.0" text="Удалить" AnchorPane.leftAnchor="119.0" />
             <Button layoutX="223.0" layoutY="70.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="90.0" text="Сохранить" AnchorPane.leftAnchor="223.0" />
-            <Button layoutX="343.0" layoutY="70.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="170.0" text="Открыть СпортМастер" AnchorPane.leftAnchor="343.0" />
+            <Button onAction="#onSearchOnSportmasterClicked" layoutX="343.0" layoutY="70.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="170.0" text="Открыть СпортМастер" AnchorPane.leftAnchor="343.0" />
          </children>
       </HBox>
       <ListView layoutX="609.0" layoutY="115.0" prefHeight="200.0" prefWidth="183.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="5.0" />
