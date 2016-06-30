@@ -7,7 +7,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane minHeight="600.0" 
+			minWidth="800.0" 
+			prefHeight="600.0" 
+			prefWidth="800.0" 
+			xmlns="http://javafx.com/javafx/8" 
+			xmlns:fx="http://javafx.com/fxml/1"
+			fx:controller="gui.Controller">
    <children>
       <Label contentDisplay="CENTER" layoutX="298.0" layoutY="21.0" text="Мой Рюкзак" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
          <font>
@@ -30,6 +36,6 @@
       </HBox>
       <ListView layoutX="609.0" layoutY="115.0" prefHeight="200.0" prefWidth="183.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="5.0" />
       <Label layoutX="612.0" layoutY="94.0" text="Мои рюкзаки:" />
-      <Button layoutX="678.0" layoutY="562.0" mnemonicParsing="false" text="Вернуться в меню" />
+      <Button onAction="#onReturnToMenuClicked" layoutX="678.0" layoutY="562.0" mnemonicParsing="false" text="Вернуться в меню" />
    </children>
 </AnchorPane>
