@@ -3,6 +3,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -56,14 +57,31 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ChoiceBox layoutX="11.0" layoutY="150.0" prefHeight="24.0" prefWidth="150.0" AnchorPane.leftAnchor="5.0" />
+                  <ChoiceBox layoutX="11.0" layoutY="150.0" prefHeight="24.0" prefWidth="150.0" AnchorPane.leftAnchor="5.0" value="Ясно">
+            		<items>
+                		<FXCollections fx:factory="observableArrayList">
+                			<String fx:value="Ясно" />
+                    		<String fx:value="Облачно" />
+                    		<String fx:value="Дождь" />
+                    		<String fx:value="Снег" />
+                		</FXCollections>
+            		</items>
+        		</ChoiceBox>
                   <Label layoutX="7.0" layoutY="181.0" text="Ветер:" AnchorPane.leftAnchor="5.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                   <ChoiceBox layoutX="5.0" layoutY="201.0" prefWidth="150.0" AnchorPane.leftAnchor="5.0" />
-                  <ChoiceBox layoutX="10.0" layoutY="263.0" prefWidth="150.0" AnchorPane.leftAnchor="5.0" />
+                  <ChoiceBox layoutX="10.0" layoutY="263.0" prefWidth="150.0" AnchorPane.leftAnchor="5.0" value="Пересеченная">
+            		<items>
+                		<FXCollections fx:factory="observableArrayList">
+                    		<String fx:value="Пересеченная" />
+                    		<String fx:value="Лес" />
+                    		<String fx:value="Горы" />
+                		</FXCollections>
+            		</items>
+        		</ChoiceBox>
                   <Label layoutX="5.0" layoutY="236.0" text="Рельеф местности" AnchorPane.leftAnchor="5.0">
                      <font>
                         <Font size="18.0" />
