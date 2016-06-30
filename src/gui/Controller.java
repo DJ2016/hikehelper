@@ -23,22 +23,22 @@ public class Controller{
 	
 	@FXML private TextField searchField;
 	@FXML private TableView<Product> tableView;
-	@FXML private CheckBox male;
-	@FXML private CheckBox female;
+	@FXML private CheckBox checkBox1;
+	@FXML private CheckBox checkBox2;
 	
 	@FXML
 	public void isChecked(){
-		if (male.isSelected()){
-			female.setDisable(true);
+		if (checkBox1.isSelected()){
+			checkBox2.setDisable(true);
 		}
-		if (!male.isSelected()){
-			female.setDisable(false);
+		if (!checkBox1.isSelected()){
+			checkBox2.setDisable(false);
 		}
-		if(female.isSelected()){
-			male.setDisable(true);
+		if(checkBox2.isSelected()){
+			checkBox1.setDisable(true);
 		}
-		if (!female.isSelected()){
-			male.setDisable(false);
+		if (!checkBox2.isSelected()){
+			checkBox1.setDisable(false);
 		}
 		
 	}
