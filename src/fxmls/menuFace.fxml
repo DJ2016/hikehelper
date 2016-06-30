@@ -29,7 +29,7 @@
             <Button fx:id="findYourSelfList" onAction="#onFindYourSelfListButtonClicked" layoutX="176.0" layoutY="99.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Найти список для себя" />
             <Button fx:id="findTeamList" onAction="#onFindTeamListClicked" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Найти список для команды" />
             <Button fx:id="createList" onAction="#onCreateListClicked" layoutX="176.0" layoutY="150.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Составить свой список" />
-            <Button fx:id="searchOnSportmaster" onAction="#onSearchOnSportmasterClicked" layoutX="175.0" layoutY="203.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Поиск товаров в Спортмастер" />
+            <Button fx:id="searchOnSportmaster" onAction="#onSearchOnSportmasterClicked" layoutX="175.0" layoutY="203.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Поиск вещей в СпортМастер" />
          </children>
       </VBox>
    </children>
