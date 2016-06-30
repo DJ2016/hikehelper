@@ -20,7 +20,7 @@ public class SQLConnection {
 		public static final String countDay = "CountDay";
 		//TODO: ADD OTHER TABLES HERE
 	}
-	protected static final class Param {	
+	public static final class Param {	
 		public static final String nameThing = "nameThing";
 		public static final String range = "range";
 		public static final String precipitation = "precipitation";
@@ -32,7 +32,7 @@ public class SQLConnection {
 
 	protected static Statement connect() throws ClassNotFoundException, SQLException {
 		//TODO: ADD THIS 
-		String dbname = "";
+		String dbname = "DBSS";
 		Class.forName("org.sqlite.JDBC");
 		connection = DriverManager.getConnection("jdbc:sqlite:resources/" + dbname);
 		statement = connection.createStatement();
@@ -44,15 +44,6 @@ public class SQLConnection {
 				//TODO: SET ADD THIS
 				" id INTEGER PRIMARY KEY AUTOINCREMENT, ;");
 	}
-	protected static void seach (PrintStream ps, String tableName, Param nameThing, Param range, Param precipitation, Param tipeTp, Param countPR, Param countD) 
-			throws ClassNotFoundException, SQLException {
-			set = statement.executeQuery("SELECT nameThing FROM " + tableName + "where Things.tipe=1");
-			set = statement.executeQuery("SELECT nameThing FROM " + tableName + "inner join Weather on Things.idThing=Weather.idThinginner join Topography on Things.idThing=Topography.idThing inner join CountPersons "
-			+ "on Things.idThing=CountPersons.idThing inner join CountDay "
-			+ "on Things.idThing=CountDay.idThing where range=" +range +"and precipitation="+precipitation +"and tipeTP="+tipeTp+"and countD="+countD);
-			while (set.next()) {
-			ps.print("Thing = "+ set.getString("idThing"));
-			}
 	
 	protected static void insert(String tableName, String values) throws SQLException, ClassNotFoundException {
 		//TODO: COMPLETE THIS
