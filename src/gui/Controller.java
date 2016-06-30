@@ -22,25 +22,6 @@ public class Controller{
 	@FXML private CheckBox checkBox2;
 	
 	@FXML
-<<<<<<< HEAD
-=======
-	public void isChecked(){
-		if (checkBox1.isSelected()){
-			checkBox2.setDisable(true);
-		}
-		if (!checkBox1.isSelected()){
-			checkBox2.setDisable(false);
-		}
-		if(checkBox2.isSelected()){
-			checkBox1.setDisable(true);
-		}
-		if (!checkBox2.isSelected()){
-			checkBox1.setDisable(false);
-		}
-		
-	}
-	@FXML
->>>>>>> origin/master
     public void onFindYourSelfListButtonClicked() throws IOException{
 		App.setFrame(FXMLFrameLoader.getYourselfListFrame());
     }
@@ -103,18 +84,8 @@ public class Controller{
 	
 	@FXML
 	public void isChecked(){
-		if (checkBox1.isSelected()){
-			checkBox2.setDisable(true);
-		}
-		if (!checkBox1.isSelected()){
-			checkBox2.setDisable(false);
-		}
-		if(checkBox2.isSelected()){
-			checkBox1.setDisable(true);
-		}
-		if (!checkBox2.isSelected()){
-			checkBox1.setDisable(false);
-		}
+		checkBox1.setDisable(checkBox2.isSelected());
+		checkBox2.setDisable(checkBox1.isSelected());
 		
 	}
 }
