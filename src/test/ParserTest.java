@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.function.Consumer;
 
-import parser.Product;
+import entities.Product;
 import parser.SportmasterParser;
 
 public class ParserTest {
