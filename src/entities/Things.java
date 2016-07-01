@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 
 import connection.SQLConnection;
 import connection.SQLConnection.Param;
@@ -39,6 +40,20 @@ public class Things {
 	public void setThing(String thing, int quantity) {
 		this.thingName = thing;
 		this.quantity = quantity;
+	}
+	public Things safeSet(String thing, String quantity){
+		quantity = Optional
+				.ofNullable(quantity)
+				.get()
+				.replaceAll("\\D+", "");
+		
+		int value;
+		if (quantity.isEmpty())
+			value = 0;
+		else value = Integer.parseInt(quantity);
+		setThing(thing, value);
+		return this;
+		
 	}
 	/*
 	protected static List <Things> seach (String tableName, Param params) throws ClassNotFoundException, SQLException {
