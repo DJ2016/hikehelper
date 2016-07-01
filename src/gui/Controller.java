@@ -82,10 +82,5 @@ public class Controller{
 			   App.stage.getY() + b.getMinY());
 	}
 	
-	@FXML
-	public void isChecked(){
-		checkBox1.setDisable(checkBox2.isSelected());
-		checkBox2.setDisable(checkBox1.isSelected());
-		
-	}
+
 }
