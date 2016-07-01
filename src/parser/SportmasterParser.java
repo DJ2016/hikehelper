@@ -10,10 +10,13 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import connection.Querable;
+import entities.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import util.Util;
 
-public class SportmasterParser {
+public class SportmasterParser implements Querable<Product>{
 	
 	public SportmasterParser (){}
 	
@@ -93,6 +96,35 @@ public class SportmasterParser {
 			list.add(product);
 		}
 		return list;
+	}
+	
+	/**
+	 * wraps {@link #query(String)} result to observable list
+	 * and sorted it then return
+	 * @param itemName which 'll matched <a href="sportmaster.ru">here</a>
+	 * @return sorted observable list with query result
+	 * @throws MalformedURLException - if the request URL is not a HTTP 
+	 * 		        or HTTPS URL, or is otherwise malformed 
+	 *  	   HttpStatusException - if the response is not OK 
+	 *  	                and HTTP response errors are not ignored 		              
+	 *         UnsupportedMimeTypeException - if the response mime type is not supported 
+	 *		        and those errors are not ignored 						  
+         *         SocketTimeoutException - if the connection times out 
+ 	 *	   IOException - on error 
+ 	 * @see query(String)
+	 */
+	public final ObservableList<Product> sortedObservableQuery(String itemName) throws IOException{
+		ObservableList<Product> list = FXCollections.observableArrayList(query(itemName));
+		FXCollections.sort(list);
+		return list;
+	}
+	
+	/**
+	 * the static alias of {@link #sortedObservableQuery(String)} 
+	 * @see sortedObservableQuery(String)
+	 */
+	public final static ObservableList<Product> defaultSortedObservableQuery(String itemName) throws IOException{
+		return new SportmasterParser().sortedObservableQuery(itemName);
 	}
 
 }
