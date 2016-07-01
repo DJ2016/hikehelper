@@ -13,6 +13,15 @@ public class App extends Application {
 	protected static Scene scene;
 	protected static Stage stage;
 	
+	public static Scene getScene(){
+		return scene;
+	}
+	
+	public static Stage getStage(){
+		return stage;
+	}
+	
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
