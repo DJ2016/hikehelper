@@ -1,4 +1,4 @@
-package parser;
+package entities;
 
 
 public class Product implements Comparable<Product>{
