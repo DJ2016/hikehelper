@@ -58,7 +58,11 @@ public class SQLConnection {
 		}
 	}
 
-
+/*
+ set=statement.executeQuery("SELECT nameThing, priority, value FROM"+ tableName +"left join Weather on Things.idThing=Weather.idThing "
+ 		+ "left join Topography on Things.idThing=topography.idThing "
+ 		+ "left join CountDay on Things.idThing=CountDay.idThing where range='"+params.range+"'" +"or precipitation='"+params.precipitation+"'" +"or tipeTP='"+params.tipeTp+"'"+"or countD='"+params.countD+"'"+"or Things.tipe=1");
+ */
 	protected static void delete(String tableName) throws ClassNotFoundException, SQLException {
 		statement.execute("DROP TABLE '" + tableName + "';");
 	}
