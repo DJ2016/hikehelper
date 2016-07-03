@@ -72,4 +72,8 @@ public class Things {
 	public String toString(){
 		return this.thingName +"  "+ this.priority +"  "+ this.value;
 	}
+	
+	public void setQuantity(int quantity){
+		this.quantity = quantity;
+	}
 }
