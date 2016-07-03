@@ -1,6 +1,5 @@
 package gui.controllers;
 
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 
 import java.io.IOException;
@@ -34,22 +33,6 @@ public abstract class AbstractController implements FunctionalController<Node>{
 	public abstract void initialize();
 	
 	
-	/**
-	 * there are an implementation of {@link javafx.scene.control.Alert}
-	 * with auto showing
-	 */
-	protected class AutoShowableAlert extends Alert{
-		/**
-		 * @param title the Title of the dialog.
-		 * @param information the string to show in the dialog header area.
-		 */
-		AutoShowableAlert(String title, String information){
-			super(Alert.AlertType.ERROR);
-			super.setTitle(title);
-			super.setHeaderText(information);
-			super.show();
-		}
-	}
 	
 	/**
 	 * invoked when sportmaster search button had been pressed
@@ -83,11 +66,22 @@ public abstract class AbstractController implements FunctionalController<Node>{
 		int index = tableThings.getSelectionModel().getSelectedIndex();
 		if(things.isEmpty()){
 			new AutoShowableAlert("Ошибка","Список пуст");
-		} else if (index <= 0){
+		} else if (index < 0){
 			new AutoShowableAlert("Ошибка","Не выделена строка для удаления.");
 		} else {
 			things.remove(index);
 		}
 	}
 	
+	/**
+	 * @param value false - textfield text will changed on gray
+	 *              and on black otherwise
+	 */
+	protected void setNodeStyle(boolean value, Node field){
+		String style = "-fx-text-fill: ";
+		if (!value)
+			style += "gray";
+		else style += "black";
+		field.setStyle(style);
+	}
 }
