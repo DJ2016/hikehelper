@@ -16,9 +16,9 @@ public class AcceptChangeListener<T, V> implements ChangeListener<V>{
 		this.consumer = consumer;
 	}
 
-	public AcceptChangeListener(T node, BiConsumer<V, T> consumer, V value){
-		this(node, consumer);
-		consumer.accept(value, node);
+	public AcceptChangeListener(T arg, BiConsumer<V, T> consumer, V value){
+		this(arg, consumer);
+		consumer.accept(value, arg);
 	}
 	
 	@Override
