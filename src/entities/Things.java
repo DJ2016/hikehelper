@@ -1,36 +1,22 @@
 package entities;
 
-import java.awt.List;
-import java.io.PrintStream;
-import java.sql.SQLException;
-import java.io.PrintStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Optional;
 
-import connection.SQLConnection;
-import connection.SQLConnection.Param;
 
 public class Things {
 
 	private String thingName;
 	private int quantity;
-
+	private String priority;
+	private String value;
+	
 	public Things() {
-		this.thingName = "";
-		this.quantity = 0;
+		this("", 0);
 	}
 
 	public Things(String thingname, int quantity) {
 		this.thingName = thingname;
 		this.quantity = quantity;
-	}
-
-	public String getThingName() {
-		return thingName;
 	}
 
 	public int getQuantity() {
@@ -55,17 +41,32 @@ public class Things {
 		return this;
 		
 	}
-	/*
-	protected static List <Things> seach (String tableName, Param params) throws ClassNotFoundException, SQLException {
-		//List <Thing> list = new List();
-		//CONECT JDBS?
-		set = statement.executeQuery("SELECT nameThing FROM " + tableName + "where Things.tipe=1");
-		set = statement.executeQuery("SELECT nameThing FROM " + tableName + "inner join Weather on Things.idThing=Weather.idThinginner join Topography on Things.idThing=Topography.idThing inner join CountPersons "
-				+ "on Things.idThing=CountPersons.idThing inner join CountDay "
-				+ "on Things.idThing=CountDay.idThing where range=" +params.range +"and precipitation="+params.precipitation +"and tipeTP="+params.tipeTp+"and countD="+params.countD);
-		while (set.next()) {
-		list+=set.getString();
-		}
-	}*/
+
+
+	public String getThingName() {
+		return thingName;
+	}
+
+	public Things setThingName(String name){
+		this.thingName = name;
+		return this;
+	}
+	public String getPriority() {
+		return priority;
+	}
+
+	public Things setPriority(String priority) {
+		this.priority = priority;
+		return this;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public Things setValue(String value) {
+		this.value = value;
+		return this;
+	}
 
 }
