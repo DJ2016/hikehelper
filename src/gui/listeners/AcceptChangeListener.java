@@ -8,11 +8,11 @@ import javafx.scene.Node;
 
 public class AcceptChangeListener<T, V> implements ChangeListener<V>{
 
-	private T node;
+	private T object;
 	private BiConsumer<V, T> consumer;
 	
-	public AcceptChangeListener(T node, BiConsumer<V, T> consumer){
-		this.node = node;
+	public AcceptChangeListener(T arg, BiConsumer<V, T> consumer){
+		this.object = arg;
 		this.consumer = consumer;
 	}
 
@@ -23,7 +23,7 @@ public class AcceptChangeListener<T, V> implements ChangeListener<V>{
 	
 	@Override
 	public void changed(ObservableValue<? extends V> observable, V oldValue, V newValue) {
-		consumer.accept(observable.getValue(), node);
+		consumer.accept(observable.getValue(), object);
 		
 	}
 
