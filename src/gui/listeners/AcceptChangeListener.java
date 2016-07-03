@@ -4,7 +4,6 @@ import java.util.function.BiConsumer;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.Node;
 
 public class AcceptChangeListener<T, V> implements ChangeListener<V>{
 
