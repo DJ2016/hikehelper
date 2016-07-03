@@ -69,4 +69,7 @@ public class Things {
 		return this;
 	}
 
+	public String toString(){
+		return this.thingName +"  "+ this.priority +"  "+ this.value;
+	}
 }

@@ -10,13 +10,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import connection.Querable;
 import entities.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import util.Util;
 
-public class SportmasterParser implements Querable<Product>{
+public class SportmasterParser {
 	
 	public SportmasterParser (){}
 	
