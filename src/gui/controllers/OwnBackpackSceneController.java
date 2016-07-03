@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import gui.listeners.AcceptChangeListener;
+import javafx.beans.value.ChangeListener;
 import entities.Things;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -50,11 +52,13 @@ public class OwnBackpackSceneController extends AbstractController {
 	
 	@FXML @Override
 	public void initialize() {
-		things.add(new Things("Предмет",1));
+		things.add(new Things("ГЏГ°ГҐГ¤Г¬ГҐГІ",1));
 		FileSearch();
 		onClickedListFile();
 		EditTable();
 		tableThings.setItems(things);
+		quanInput.focusedProperty().addListener(new AcceptChangeListener<Node, Boolean>(quanInput, this::setNodeStyle, false));
+		nameInput.focusedProperty().addListener(new AcceptChangeListener<Node, Boolean>(nameInput, this::setNodeStyle, false));
 	}
 	
 	private void EditTable(){
@@ -139,7 +143,7 @@ public class OwnBackpackSceneController extends AbstractController {
 	@FXML
 	private void addClickedButton() {
 		if (nameInput.getText().isEmpty()) {
-			new AutoShowableAlert("Ошибка", "Заполните поле Предмет.");
+			new AutoShowableAlert("ГЋГёГЁГЎГЄГ ", "Г‡Г ГЇГ®Г«Г­ГЁГІГҐ ГЇГ®Г«ГҐ ГЏГ°ГҐГ¤Г¬ГҐГІ.");
 		} else {
 			things.add(new Things().safeSet(nameInput.getText(), quanInput.getText()));
 			//Util.invokeAll(Arrays.asList(nameInput, quanInput), TextField.class, "clear");
