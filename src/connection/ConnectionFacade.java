@@ -1,96 +1,107 @@
 package connection;
 
-import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import entities.Params;
 import entities.Things;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ConnectionFacade implements Querable<Things>{
-
+public class ConnectionFacade{
+	private ConnectionFacade(){}
+	
 	protected static Connection connection;
 	protected static Statement statement;
 	protected static ResultSet set;
 
-	@Deprecated
-	protected static final class Tables {
-		public static final String weather = "Weather";
-		public static final String user = "User";
-		public static final String checkList = "CheckList";
-		public static final String topography = "Topography";
-		public static final String countPersons = "CountPersons";
-		public static final String countDay = "CountDay";
-	}
 
 	private static final String dbname = "BDSS.db";
-	protected static Statement connect() throws ClassNotFoundException, SQLException {
+	protected static void connect() throws ClassNotFoundException, SQLException {
 		Class.forName("org.sqlite.JDBC");
 		connection = DriverManager.getConnection("jdbc:sqlite:resources/" + dbname);
 		statement = connection.createStatement();
-		return statement;
+	}
+
+
+	
+	
+	public static boolean requireNullOrClosed (Object arg) {
+		try {
+			return arg == null || (Boolean) arg.getClass().getMethod("isClosed").invoke(arg);
+		} catch (IllegalAccessException 
+				| IllegalArgumentException 
+				| InvocationTargetException 
+				| NoSuchMethodException
+				| SecurityException e) {
+			e.printStackTrace(System.out);
+		} return false;
 		
 	}
-
-
-	protected static void delete(String tableName) throws ClassNotFoundException, SQLException {
-		statement.execute("DROP TABLE '" + tableName + "';");
-	}
-
-	protected static void close() throws SQLException {
-		if (!statement.isClosed())
-			statement.close();
-		if (!connection.isClosed())
+	
+	
+	protected static void close() throws SQLException  {
+		if (!requireNullOrClosed(statement))
+			statement.close(); 
+		if (!requireNullOrClosed(connection))
 			connection.close();
-		if (set != null && !set.isClosed())
+		if (!requireNullOrClosed(set))
 			set.close();
 	}
 	
+	protected static final String tableName = "Things";
 	
-	public static void someMethod(List<Things> list, String tableName, Params params) throws ClassNotFoundException, SQLException{
-		if (statement == null || statement.isClosed())
-			statement = connect();
+	protected static final String columnName = "nameThing";
+	protected static final String columnValue = "value";
+	
+	private static void query(List<Things> list, String tableName, Params params) throws ClassNotFoundException, SQLException{
+		if (requireNullOrClosed(statement))
+			connect();
 		
 		set = statement.executeQuery(
-				"SELECT nameThing, priority, value FROM " + tableName + " "
-					+ "left join Weather on Things.idThing=Weather.idThing "
-					+ "left join Topography on Things.idThing=topography.idThing "
-					+ "left join CountDay on Things.idThing=CountDay.idThing "
-						+ "where range='" + params.getRange() + "'" 
+				"SELECT DISTINCT " + columnName + ", "+ columnValue + " FROM " + tableName + " "
+					+ "left join Weather on Things.idThing = Weather.idThing "
+					+ "left join Topography on Things.idThing = Topography.idThing "
+					+ "left join CountDay on Things.idThing = CountDay.idThing "
+						+ "where range = '" + params.getRange() + "'" 
 							+ "or precipitation='" + params.getPrecipitation() + "'" 
 							+ "or tipeTP='" + params.getTipeTp() + "'"
 							+ "or countD='" + params.getCountD() + "'" 
-							+ "or Things.tipe=1"
+							+ "or Things.tipe = 1"
 		);
 		
 		while (set.next()){
 			list.add(new Things()
-					.setThingName(set.getString("nameThing"))
-					.setPriority(set.getString("priority"))
-					.setValue(set.getString("value")));
+					.setThingName(set.getString(columnName))
+					.setValue(set.getString(columnValue)));
 		}
 		
-		statement.close();
-		set.close();
+		close();
 	}
 	
+
 	
-	@Override
-	public List<Things> query(String arg) throws IOException {
-		List<Things> result = null;
+
+
+
+	public static List<Things> query(Params arg) throws ClassNotFoundException, SQLException  {
+		List<Things> result = new ArrayList<Things>();
+		query(result, tableName, arg);
 		return result;
 	}
 
-	@Override
-	public ObservableList<Things> sortedObservableQuery(String arg) throws IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
+	
+	public static ObservableList<Things> sortedObservableQuery(Params arg) throws ClassNotFoundException, SQLException {
+		ObservableList<Things> result = FXCollections.observableArrayList();
+		query(result, tableName, arg);
+		return result;
+	}
 
 }
