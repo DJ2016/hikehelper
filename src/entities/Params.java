@@ -45,4 +45,8 @@ public class Params {
 		this.range = range;
 		return this;
 	}
+	
+	public String toString(){
+		return range + " " + precipitation + " " + countD + " " + countPR + " " + tipeTp;
+	}
 }
