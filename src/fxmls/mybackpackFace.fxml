@@ -7,11 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" 
-			prefWidth="800.0" 
-			xmlns="http://javafx.com/javafx/8" 
-			xmlns:fx="http://javafx.com/fxml/1" 
-			fx:controller="gui.controllers.TeamBackpackSceneController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.TeamBackpackSceneController">
    <children>
       <SplitPane dividerPositions="0.31453634085213034" layoutX="268.0" layoutY="211.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -44,7 +40,7 @@
                      </font>
                   </Label>
                   <TextField layoutX="6.0" layoutY="338.0" prefHeight="24.0" prefWidth="178.0" AnchorPane.leftAnchor="10.0" />
-                  <Button layoutX="42.0" layoutY="390.0" mnemonicParsing="false" text="Составить список" />
+                  <Button layoutX="63.0" layoutY="466.0" mnemonicParsing="false" text="Составить список" />
                   <Label layoutX="-2.0" layoutY="135.0" text="Атмосферные явления:" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="14.0" />
@@ -86,7 +82,7 @@
                      </font>
                   </Label>
                   <TextField layoutX="125.0" layoutY="107.0" prefHeight="20.0" prefWidth="60.0" AnchorPane.leftAnchor="125.0" />
-                  <ChoiceBox layoutX="10.0" layoutY="276.0" prefHeight="24.0" prefWidth="51.0" AnchorPane.leftAnchor="10.0" value="3" >
+                  <ChoiceBox layoutX="10.0" layoutY="276.0" prefHeight="24.0" prefWidth="51.0" value="3" AnchorPane.leftAnchor="10.0">
             		<items>
                 		<FXCollections fx:factory="observableArrayList">
                     		<String fx:value="1" />
@@ -112,9 +108,6 @@
                   </Label>
                   <HBox layoutX="66.0" layoutY="460.0" spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
                      <children>
-                        <Button layoutX="224.0" layoutY="460.0" mnemonicParsing="false" text="Добавить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="159.0" />
-                        <Button onAction="#deleteClickedButton" layoutX="299.0" layoutY="460.0" mnemonicParsing="false" text="Удалить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="92.0" />
-                        <Button layoutX="368.0" layoutY="460.0" mnemonicParsing="false" text="Сохранить" />
                         <Button mnemonicParsing="false" onAction="#onSearchAtSportmasterClicked" text="Открыть СпортМастер" />
                         <Button mnemonicParsing="false" onAction="#onReturnToMenuClicked" text="Вернуться в меню" />
                      </children>
