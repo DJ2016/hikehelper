@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.lang.FunctionalInterface;
 import java.util.function.Function;
 
+import javax.swing.ToolTipManager;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.Alert.AlertType;
@@ -48,7 +50,7 @@ public interface FunctionalController<T extends Node> extends Function<Functiona
 	 * on tooltip u should do it on ur
 	 * class-inheritor
 	 */
-	final Tooltip tip = new Tooltip();
+	Tooltip tip = new Tooltip();
 	
 	
 	/**
@@ -57,10 +59,17 @@ public interface FunctionalController<T extends Node> extends Function<Functiona
 	 * @param msg message at tooltip
 	 */
 	public default void showTooltip(T src, String msg){
+		Tooltip tip;
+		if (FunctionalController.tip.isActivated()){
+			tip = new Tooltip();
+			tip.setAutoHide(true);
+		}
+		else tip = FunctionalController.tip;
 		Bounds bnds = src.getBoundsInParent();
 		Stage st = App.getStage();
 		tip.setText(msg);
 		tip.show(st, st.getX() +(bnds.getMinX() + bnds.getMaxX()) / 2, st.getY() + bnds.getMinY());
+		Tooltip.install(src, tip);
 	}
 	
 	/**
@@ -69,8 +78,7 @@ public interface FunctionalController<T extends Node> extends Function<Functiona
 	public default void hideTooltip(){
 		tip.hide();
 	}
-	
-	
+
 
 	/**
 	 * there are an implementation of {@link javafx.scene.control.Alert}
