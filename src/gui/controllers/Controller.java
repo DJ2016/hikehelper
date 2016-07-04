@@ -5,10 +5,15 @@ import java.io.IOException;
 import entities.Product;
 import fxmls.FXMLFrameLoader;
 import gui.App;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import parser.SportmasterParser;
+import javafx.scene.control.Dialog;
+import javafx.scene.image.ImageView;
+
 
 public class Controller implements FunctionalController<TextField>{
 	
@@ -40,7 +45,7 @@ public class Controller implements FunctionalController<TextField>{
 	}
 	
 	
-	@FXML
+	@FXML 
 	public void initialize(){
 		tooltipInit();
 	}
@@ -60,9 +65,25 @@ public class Controller implements FunctionalController<TextField>{
 			tableView.setItems(SportmasterParser.defaultSortedObservableQuery(str));
 			tableView.setVisible(true);
 		}
+		
+		tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Product>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Product> observable, Product oldValue, Product newValue) {
+				/*
+				Dialog<?> d = new Dialog<>();
+				d.getDialogPane().setContent(new ImageView(observable.getValue().getImgSource()));
+				d.showAndWait();
+				*/
+			}
+		});
 	}
 
 
+	@FXML
+	public void onSelected(){
+		System.out.println("sasdas");
+	}
 
 	@Override
 	public Void apply(FunctionalController<TextField> t) {
