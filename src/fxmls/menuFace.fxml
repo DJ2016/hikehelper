@@ -7,6 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
 
 <AnchorPane prefHeight="300.0" 
 		    prefWidth="400.0" 
@@ -30,6 +31,7 @@
             <Button fx:id="findTeamList" onAction="#onFindTeamListClicked" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Найти список для команды" />
             <Button fx:id="createList" onAction="#onCreateListClicked" layoutX="176.0" layoutY="150.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Составить свой список" />
             <Button fx:id="searchOnSportmaster" onAction="#onSearchAtSportmasterClicked" layoutX="175.0" layoutY="203.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Поиск вещей в СпортМастер" />
+            <Button fx:id="createList2" onAction="#onCreateListClicked" layoutX="176.0" layoutY="225.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Мои рюкзаки" />
          </children>
       </VBox>
    </children>
