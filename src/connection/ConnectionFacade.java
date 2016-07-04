@@ -61,8 +61,7 @@ public class ConnectionFacade{
 	protected static final String columnValue = "value";
 	
 	private static void query(List<Things> list, String tableName, Params params) throws ClassNotFoundException, SQLException{
-		if (requireNullOrClosed(statement))
-			connect();
+		connect();
 		
 		set = statement.executeQuery(
 				"SELECT DISTINCT " + columnName + ", "+ columnValue + " FROM " + tableName + " "
