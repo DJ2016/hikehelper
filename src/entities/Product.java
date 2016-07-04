@@ -49,7 +49,7 @@ public class Product implements Comparable<Product>{
 	}
 	
 	public String toString(){
-		return name + " " + price + "ð";
+		return name + " " + price + "ð" + "  " + imgsource;
 	}
 	
 	public String getProductID() {
