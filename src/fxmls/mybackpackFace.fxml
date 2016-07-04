@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import entities.*?>
+
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.collections.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.FXCollections?> 
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.TeamBackpackSceneController">
    <children>
@@ -39,14 +43,14 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="6.0" layoutY="338.0" prefHeight="24.0" prefWidth="178.0" AnchorPane.leftAnchor="10.0" />
-                  <Button layoutX="63.0" layoutY="466.0" mnemonicParsing="false" text="Составить список" />
+                  <TextField fx:id = "fieldCountPersons" layoutX="6.0" layoutY="338.0" prefHeight="24.0" prefWidth="178.0" AnchorPane.leftAnchor="10.0" />
+                  <Button onAction = "#onCreatedClicked" layoutX="63.0" layoutY="466.0" mnemonicParsing="false" text="Составить список" />
                   <Label layoutX="-2.0" layoutY="135.0" text="Атмосферные явления:" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ChoiceBox layoutX="5.0" layoutY="155.0" prefHeight="24.0" prefWidth="178.0" value="Ясно" AnchorPane.leftAnchor="10.0">
+                  <ChoiceBox fx:id = "boxPrecipitation" layoutX="5.0" layoutY="155.0" prefHeight="24.0" prefWidth="178.0" value="Ясно" AnchorPane.leftAnchor="10.0">
             		<items>
                 		<FXCollections fx:factory="observableArrayList">
                 			<String fx:value="Ясно" />
@@ -56,7 +60,7 @@
                 		</FXCollections>
             		</items>
         		</ChoiceBox>
-                  <ChoiceBox layoutX="3.0" layoutY="212.0" prefHeight="24.0" prefWidth="178.0" value="Пересеченная" AnchorPane.leftAnchor="10.0">
+                  <ChoiceBox fx:id = "boxTipeTp" layoutX="3.0" layoutY="212.0" prefHeight="24.0" prefWidth="178.0" value="Пересеченная" AnchorPane.leftAnchor="10.0">
             		<items>
                 		<FXCollections fx:factory="observableArrayList">
                     		<String fx:value="Пересеченная" />
@@ -75,14 +79,14 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="27.0" layoutY="107.0" prefHeight="20.0" prefWidth="60.0" AnchorPane.leftAnchor="27.0" />
+                  <TextField fx:id="fieldFrom" layoutX="27.0" layoutY="107.0" prefHeight="20.0" prefWidth="60.0" AnchorPane.leftAnchor="27.0" />
                   <Label layoutX="94.0" layoutY="109.0" text="до" AnchorPane.leftAnchor="94.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="125.0" layoutY="107.0" prefHeight="20.0" prefWidth="60.0" AnchorPane.leftAnchor="125.0" />
-                  <ChoiceBox layoutX="10.0" layoutY="276.0" prefHeight="24.0" prefWidth="51.0" value="3" AnchorPane.leftAnchor="10.0">
+                  <TextField fx:id="fieldTo" layoutX="125.0" layoutY="107.0" prefHeight="20.0" prefWidth="60.0" AnchorPane.leftAnchor="125.0" />
+                  <ChoiceBox fx:id = "boxCountDays" layoutX="10.0" layoutY="276.0" prefHeight="24.0" prefWidth="51.0" value="3" AnchorPane.leftAnchor="10.0">
             		<items>
                 		<FXCollections fx:factory="observableArrayList">
                     		<String fx:value="1" />
@@ -112,10 +116,21 @@
                         <Button mnemonicParsing="false" onAction="#onReturnToMenuClicked" text="Вернуться в меню" />
                      </children>
                   </HBox>
-                  <TableView layoutX="124.0" layoutY="126.0" prefHeight="498.0" prefWidth="448.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0">
+                  <TableView fx:id = "tableThings" layoutX="124.0" layoutY="126.0" prefHeight="498.0" prefWidth="448.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="50.0">
                     <columns>
-                      <TableColumn prefWidth="285.0" text="Предмет" />
-                      <TableColumn prefWidth="152.0" text="Кол-во" />
+                    
+                      <TableColumn prefWidth="285.0" text="Предмет">
+                      		<cellValueFactory>
+                				<PropertyValueFactory property="thingName" />
+            				</cellValueFactory>
+            		  </TableColumn>
+            		  
+                      <TableColumn prefWidth="152.0" text="Кол-во">
+                      		<cellValueFactory>
+            					<PropertyValueFactory property="value" />
+            				</cellValueFactory>
+          			  </TableColumn>
+          			  
                     </columns>
                   </TableView>
                </children>
