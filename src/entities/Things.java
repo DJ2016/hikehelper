@@ -31,21 +31,19 @@ public class Things {
 		this.thingName = thing;
 		this.quantity = quantity;
 	}
-	/*public Things safeSet(String thing, String quantity){
-		quantity = Optional
-				.ofNullable(quantity)
-				.get()
-				.replaceAll("\\D+", "");
-		
-		int value;
-		if (quantity.isEmpty())
-			value = 0;
-		else value = Integer.parseInt(quantity);
-		setThing(thing, value);
+	
+	public Things setThingIfNotEmpty(String value){
+		if (value != null && !value.isEmpty())
+			this.thingName = value;
 		return this;
-		
-	}*/
+	}
 
+	public Things setQuantityIfNotEmpty(String value){
+		if (value != null && !value.isEmpty())
+			this.quantity = value;
+		return this;
+	}
+	
 	public String getThingName() {
 		return thingName;
 	}
