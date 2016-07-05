@@ -9,29 +9,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Button?>
 
-<AnchorPane prefHeight="300.0" 
-		    prefWidth="400.0" 
-		    xmlns="http://javafx.com/javafx/8" 
-		    xmlns:fx="http://javafx.com/fxml/1" 
-		    fx:controller="gui.controllers.Controller">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.Controller">
    <children>
-      <Label contentDisplay="CENTER" 
-      	     layoutX="72.0" 
-      	     layoutY="14.0" 
-      	     text="Собери рюкзак в поход!" 
-      	     textOverrun="CENTER_WORD_ELLIPSIS" 
-      	     AnchorPane.topAnchor="10.0">
+      <Label contentDisplay="CENTER" layoutX="72.0" layoutY="14.0" text="Собери рюкзак в поход!" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <VBox layoutX="108.0" layoutY="84.0" spacing="10.0">
          <children>
-            <Button fx:id="findYourSelfList" onAction="#onFindYourSelfListButtonClicked" layoutX="176.0" layoutY="99.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Найти список для себя" />
-            <Button fx:id="findTeamList" onAction="#onFindTeamListClicked" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Найти список для команды" />
-            <Button fx:id="createList" onAction="#onCreateListClicked" layoutX="176.0" layoutY="150.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Составить свой список" />
-            <Button fx:id="searchOnSportmaster" onAction="#onSearchAtSportmasterClicked" layoutX="175.0" layoutY="203.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Поиск вещей в СпортМастер" />
-            <Button fx:id="createList2" onAction="#onCreateListClicked" layoutX="176.0" layoutY="225.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="185.0" text="Мои рюкзаки" />
+            <Button fx:id="findYourSelfList" layoutX="176.0" layoutY="99.0" mnemonicParsing="false" onAction="#onFindYourSelfListButtonClicked" prefHeight="24.0" prefWidth="185.0" text="Найти список для себя" />
+            <Button fx:id="createList" layoutX="176.0" layoutY="150.0" mnemonicParsing="false" onAction="#onCreateListClicked" prefHeight="24.0" prefWidth="185.0" text="Составить свой список" />
+            <Button fx:id="searchOnSportmaster" layoutX="175.0" layoutY="203.0" mnemonicParsing="false" onAction="#onSearchAtSportmasterClicked" prefHeight="24.0" prefWidth="185.0" text="Поиск вещей в СпортМастер" />
+            <Button fx:id="createList2" layoutX="176.0" layoutY="225.0" mnemonicParsing="false" onAction="#onCreateListClicked" prefHeight="24.0" prefWidth="185.0" text="Мои рюкзаки" />
          </children>
       </VBox>
    </children>
