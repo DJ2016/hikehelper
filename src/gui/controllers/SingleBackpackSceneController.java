@@ -19,7 +19,7 @@ import javafx.scene.control.TextField;
 public class SingleBackpackSceneController extends AbstractController{
 
 	
-	@FXML private CheckBox checkBox1;
+	@FXML CheckBox checkBox1;
 	@FXML private CheckBox checkBox2;
 
 	@FXML
@@ -72,7 +72,8 @@ public class SingleBackpackSceneController extends AbstractController{
 
 	@Override
 	public void initialize() {
-		
+		checkBox1.setSelected(true);
+		checkBox2.setDisable(true);
 		// TODO Auto-generated method stub
 	}
 
