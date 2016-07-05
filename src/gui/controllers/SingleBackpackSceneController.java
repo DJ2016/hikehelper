@@ -1,5 +1,7 @@
 package gui.controllers;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -19,10 +21,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class SingleBackpackSceneController extends AbstractController{
-
 	
-	@FXML CheckBox checkBox1;
-	@FXML private CheckBox checkBox2;
+	@FXML 
+	CheckBox checkBox1;
+	
+	@FXML 
+	private CheckBox checkBox2;
 
 	@FXML
 	private ChoiceBox<String> boxPrecipitation;
@@ -49,10 +53,21 @@ public class SingleBackpackSceneController extends AbstractController{
 	private ChoiceBox<String> fieldTo;
 	
 	@FXML
+	private TextField fileNameInput;
+	
+	@FXML
 	private TextField fieldWeight;
 	
 	@FXML
 	private TextField fieldAge;
+	
+	@FXML
+	private TableColumn<Things,String> nameColumn;
+	
+	@FXML
+	private TableColumn<Things,String> quanColumn;
+	
+	final String fullFname =  "mybackpack/";
 	
 	
 	@FXML
@@ -66,9 +81,25 @@ public class SingleBackpackSceneController extends AbstractController{
 		App.setFrame(FXMLFrameLoader.getCreateListFrame());
 	}
 	
+	private void FileSave(String fname){
+		String f  = fullFname +fname;
+		try(FileWriter fileOut = new FileWriter(f)){
+			for(int i= 0; i < things.size(); i++){
+				if(!things.get(i).getThingName().isEmpty()){
+					fileOut.write(things.get(i).getThingName()+" ");
+					fileOut.write(things.get(i).getQuantity()+"\r\n");
+				}
+			}
+		}catch(IOException ex){
+			System.out.println("File write error.");
+		}
+	}
+
 	@FXML
 	public void onSaveClicked(){
-
+		if(!fileNameInput.getText().isEmpty()){
+			FileSave(fileNameInput.getText());
+		}
 	}
 
 	@Override

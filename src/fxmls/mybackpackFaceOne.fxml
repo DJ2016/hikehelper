@@ -170,7 +170,7 @@
                   </Label>
                   <HBox layoutX="50.0" layoutY="460.0" prefHeight="24.0" prefWidth="536.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0">
                      <children>
-                        <TextField fx:id="saveField" prefHeight="24.0" prefWidth="90.0" />
+                        <TextField fx:id="fileNameInput" prefHeight="24.0" prefWidth="90.0" />
                         <Button mnemonicParsing="false" onAction="#onSaveClicked" text="Сохранить " />
                         <Button mnemonicParsing="false" onAction="#onCreateClicked" text="Редактировать список" />
                         <Button mnemonicParsing="false" onAction="#onSearchAtSportmasterClicked" text="Поиск товаров" />
