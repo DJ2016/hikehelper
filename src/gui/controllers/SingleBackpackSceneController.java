@@ -1,17 +1,23 @@
 package gui.controllers;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import connection.ConnectionFacade;
 import entities.Params;
+import entities.Things;
+import fxmls.FXMLFrameLoader;
+import gui.App;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class SingleBackpackSceneController extends AbstractController{
 
+	
 	@FXML private CheckBox checkBox1;
 	@FXML private CheckBox checkBox2;
 
@@ -20,6 +26,9 @@ public class SingleBackpackSceneController extends AbstractController{
 	
 	@FXML
 	private ChoiceBox<String> boxTipeTp;
+	
+	@FXML
+	private TextField saveField;
 	
 	@FXML
 	private ChoiceBox<String> boxCountDays;
@@ -37,7 +46,6 @@ public class SingleBackpackSceneController extends AbstractController{
 	private TextField fieldAge;
 	
 	
-	
 	@FXML
 	public void isChecked(){
 		checkBox1.setDisable(checkBox2.isSelected());
@@ -45,6 +53,17 @@ public class SingleBackpackSceneController extends AbstractController{
 
 	}
 
+	@FXML
+	public void onCreateClicked() throws IOException{
+		App.setFrame(FXMLFrameLoader.getCreateListFrame());
+	}
+	
+
+	
+	@FXML
+	public void onSaveClicked(){
+		
+	}
 
 	@Override
 	public void initialize() {
