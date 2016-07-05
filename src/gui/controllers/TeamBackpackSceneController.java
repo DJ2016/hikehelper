@@ -47,7 +47,7 @@ public class TeamBackpackSceneController extends AbstractController{
 				.setCountPR(fieldCountPersons.getText())
 				.setRange(fieldFrom.getText() + "-" + fieldTo.getText())
 				.setTipeTp(boxTipeTp.getValue());
-		tableThings.setItems(ConnectionFacade.sortedObservableQuery(params));
+		tableThings.setItems(ConnectionFacade.observableQuery(params));
 	}
 	
 	@Override
