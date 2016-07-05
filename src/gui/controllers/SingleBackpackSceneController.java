@@ -65,8 +65,6 @@ public class SingleBackpackSceneController extends AbstractController{
 		App.setFrame(FXMLFrameLoader.getCreateListFrame());
 	}
 	
-
-	
 	@FXML
 	public void onSaveClicked(){
 		
@@ -74,7 +72,6 @@ public class SingleBackpackSceneController extends AbstractController{
 
 	@Override
 	public void initialize() {
-		
 		
 		// TODO Auto-generated method stub
 	}
@@ -88,14 +85,11 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setRange(fieldFrom.getValue() + "-" + fieldTo.getValue())
 				.setTipeTp(boxTipeTp.getValue());
 		int weight = Integer.parseInt(fieldWeight.getText());
-		if(checkBox1.isSelected()){
-			weight = weight/3;
-		}
-		if(checkBox2.isSelected()){
-			weight=weight/4;
-		}
-		rekvesbp.setText("Рекомендуемый вес рюкзака " + weight + " кг");
+		if(checkBox1.isSelected()){weight = weight/3;}
+		if(checkBox2.isSelected()){weight=weight/4;}
 		tableThings.setItems(ConnectionFacade.sortedObservableQuery(params));
+		rekvesbp.setText("Рекомендуемый вес рюкзака " + weight + " кг");
+		vespredbp.setText("Вес предложенного рюкзака " + ConnectionFacade.sumMass/1000  + " кг");
 	}
 	
 	@Override
