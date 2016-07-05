@@ -75,6 +75,7 @@ public class SingleBackpackSceneController extends AbstractController{
 	@Override
 	public void initialize() {
 		
+		
 		// TODO Auto-generated method stub
 	}
 
@@ -86,7 +87,14 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setCountPR("1")
 				.setRange(fieldFrom.getValue() + "-" + fieldTo.getValue())
 				.setTipeTp(boxTipeTp.getValue());
-		rekvesbp.setText("Рекомендуемый вес рюкзака " + fieldWeight.getText() + " кг");
+		int weight = Integer.parseInt(fieldWeight.getText());
+		if(checkBox1.isSelected()){
+			weight = weight/3;
+		}
+		if(checkBox2.isSelected()){
+			weight=weight/4;
+		}
+		rekvesbp.setText("Рекомендуемый вес рюкзака " + weight + " кг");
 		tableThings.setItems(ConnectionFacade.sortedObservableQuery(params));
 	}
 	
