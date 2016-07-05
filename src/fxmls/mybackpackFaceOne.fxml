@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.SingleBackpackSceneController">
    <children>
-      <SplitPane dividerPositions="0.2957393483709273" layoutX="268.0" layoutY="211.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.2819548872180451" layoutX="268.0" layoutY="211.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="278.0">
                <children>
@@ -134,9 +134,10 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <HBox layoutX="66.0" layoutY="460.0" spacing="10.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                  <HBox layoutX="50.0" layoutY="460.0" prefHeight="24.0" prefWidth="536.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Сохранить список" />
+                        <TextField prefHeight="24.0" prefWidth="90.0" />
+                        <Button mnemonicParsing="false" text="Сохранить " />
                         <Button mnemonicParsing="false" text="Редактировать список" />
                         <Button mnemonicParsing="false" onAction="#onSearchAtSportmasterClicked" text="Поиск товаров" />
                         <Button mnemonicParsing="false" onAction="#onReturnToMenuClicked" text="Вернуться в меню" />
