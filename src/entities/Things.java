@@ -2,33 +2,36 @@ package entities;
 
 import java.util.Optional;
 
+import javafx.beans.property.SimpleStringProperty;
+
 
 public class Things {
 
+	
 	private String thingName;
-	private int quantity;
+	private String quantity;
 	private String priority;
 	private String value;
-	private String mass;
+
 	
 	public Things() {
-		this("", 0);
+		this("", "");
 	}
 
-	public Things(String thingname, int quantity) {
+	public Things(String thingname, String quantity) {
 		this.thingName = thingname;
 		this.quantity = quantity;
 	}
 
-	public int getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
-	public void setThing(String thing, int quantity) {
+	public void setThing(String thing, String quantity) {
 		this.thingName = thing;
 		this.quantity = quantity;
 	}
-	public Things safeSet(String thing, String quantity){
+	/*public Things safeSet(String thing, String quantity){
 		quantity = Optional
 				.ofNullable(quantity)
 				.get()
@@ -41,8 +44,7 @@ public class Things {
 		setThing(thing, value);
 		return this;
 		
-	}
-
+	}*/
 
 	public String getThingName() {
 		return thingName;
@@ -64,15 +66,7 @@ public class Things {
 	public String getValue() {
 		return value;
 	}
-	public String getMass() {
-		return mass;
-	}
-	
-	public Things setMass(String mass) {
-		this.mass=mass;
-		return this;
-	}
-	
+
 	public Things setValue(String value) {
 		this.value = value;
 		return this;
@@ -82,7 +76,7 @@ public class Things {
 		return this.thingName +"  "+ this.priority +"  "+ this.value;
 	}
 	
-	public void setQuantity(int quantity){
+	public void setQuantity(String quantity){
 		this.quantity = quantity;
 	}
 }
