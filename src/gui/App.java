@@ -40,8 +40,8 @@ public class App extends Application {
 		App.stage = stage;
 		setFrame(FXMLFrameLoader.getMainFrame(), "Собери Рюкзак в поход!");
 		stage.setOnCloseRequest(confirmCloseEventHandler);
-		stage.getIcons().add(new Image("/gui/elka2.jpg"));
-
+		stage.getIcons().add(new Image("/gui/images/elka2.jpg"));
+		stage.setResizable(false);
 
 	}
 
