@@ -99,7 +99,7 @@ public class ConnectionFacade{
 
 
 	
-	public static ObservableList<Things> sortedObservableQuery(Params arg) throws ClassNotFoundException, SQLException {
+	public static ObservableList<Things> observableQuery(Params arg) throws ClassNotFoundException, SQLException {
 		ObservableList<Things> result = FXCollections.observableArrayList();
 		query(result, tableName, arg);
 		return result;
