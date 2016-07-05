@@ -9,6 +9,7 @@ public class Things {
 	private int quantity;
 	private String priority;
 	private String value;
+	private String mass;
 	
 	public Things() {
 		this("", 0);
@@ -63,7 +64,15 @@ public class Things {
 	public String getValue() {
 		return value;
 	}
-
+	public String getMass() {
+		return mass;
+	}
+	
+	public Things setMass(String mass) {
+		this.mass=mass;
+		return this;
+	}
+	
 	public Things setValue(String value) {
 		this.value = value;
 		return this;

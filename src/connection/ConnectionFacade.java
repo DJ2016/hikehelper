@@ -54,9 +54,9 @@ public class ConnectionFacade{
 		if (!requireNullOrClosed(set))
 			set.close();
 	}
-	
+	public static int sumMass=0;
 	protected static final String tableName = "Things";
-	
+	protected static final String columnMass = "Mass";
 	protected static final String columnName = "nameThing";
 	protected static final String columnValue = "value";
 	
@@ -64,7 +64,7 @@ public class ConnectionFacade{
 		connect();
 		
 		set = statement.executeQuery(
-				"SELECT DISTINCT " + columnName + ", "+ columnValue + " FROM " + tableName + " "
+				"SELECT DISTINCT " + columnName + ", "+ columnValue + ", " + columnMass +" FROM " + tableName + " "
 					+ "left join Weather on Things.idThing = Weather.idThing "
 					+ "left join Topography on Things.idThing = Topography.idThing "
 					+ "left join CountDay on Things.idThing = CountDay.idThing "
@@ -79,6 +79,8 @@ public class ConnectionFacade{
 			list.add(new Things()
 					.setThingName(set.getString(columnName))
 					.setValue(set.getString(columnValue)));
+		sumMass+=set.getInt(columnMass);
+		
 		}
 		
 		close();
