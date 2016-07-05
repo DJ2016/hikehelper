@@ -123,8 +123,32 @@
                 		</FXCollections>
             		</items>
         		</ChoiceBox>
-                  <ChoiceBox layoutX="128.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" />
-                  <ChoiceBox layoutX="34.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" />
+                  <ChoiceBox fx:id="fieldTo" layoutX="128.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" value="30" >
+            		<items>
+                		<FXCollections fx:factory="observableArrayList">
+                    		<String fx:value="-30" />
+                    		<String fx:value="-20" />
+                    		<String fx:value="-10" />
+                    		<String fx:value="0" />
+                    		<String fx:value="10" />
+                    		<String fx:value="20" />
+                    		<String fx:value="30" />
+                		</FXCollections>
+            		</items>
+            	</ChoiceBox>
+                  <ChoiceBox fx:id="fieldFrom" layoutX="34.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" value="20" >
+            		<items>
+                		<FXCollections fx:factory="observableArrayList">
+                    		<String fx:value="-30" />
+                    		<String fx:value="-20" />
+                    		<String fx:value="-10" />
+                    		<String fx:value="0" />
+                    		<String fx:value="10" />
+                    		<String fx:value="20" />
+                    		<String fx:value="30" />
+                		</FXCollections>
+            		</items>
+            	</ChoiceBox>
                   <Label layoutX="13.0" layoutY="449.0" text="Рекомендуемый вес рюкзака:" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="13.0" />

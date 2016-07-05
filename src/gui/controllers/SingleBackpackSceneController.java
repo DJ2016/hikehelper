@@ -34,10 +34,10 @@ public class SingleBackpackSceneController extends AbstractController{
 	private ChoiceBox<String> boxCountDays;
 	
 	@FXML
-	private TextField fieldFrom;
+	private ChoiceBox<String> fieldFrom;
 	
 	@FXML
-	private TextField fieldTo;
+	private ChoiceBox<String> fieldTo;
 	
 	@FXML
 	private TextField fieldWeight;
@@ -76,7 +76,7 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setPrecipitation(boxPrecipitation.getValue())
 				.setCountD(boxCountDays.getValue())
 				.setCountPR("1")
-				.setRange(fieldFrom.getText() + "-" + fieldTo.getText())
+				.setRange(fieldFrom.getValue() + "-" + fieldTo.getValue())
 				.setTipeTp(boxTipeTp.getValue());
 		tableThings.setItems(ConnectionFacade.sortedObservableQuery(params));
 	}
