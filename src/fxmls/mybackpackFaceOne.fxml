@@ -136,9 +136,9 @@
                   </Label>
                   <HBox layoutX="50.0" layoutY="460.0" prefHeight="24.0" prefWidth="536.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0">
                      <children>
-                        <TextField prefHeight="24.0" prefWidth="90.0" />
-                        <Button mnemonicParsing="false" text="Сохранить " />
-                        <Button mnemonicParsing="false" text="Редактировать список" />
+                        <TextField fx:id="saveField" prefHeight="24.0" prefWidth="90.0" />
+                        <Button onAction="#onSaveClicked" mnemonicParsing="false" text="Сохранить " />
+                        <Button onAction="#onCreateClicked" mnemonicParsing="false" text="Редактировать список" />
                         <Button mnemonicParsing="false" onAction="#onSearchAtSportmasterClicked" text="Поиск товаров" />
                         <Button mnemonicParsing="false" onAction="#onReturnToMenuClicked" text="Вернуться в меню" />
                      </children>
