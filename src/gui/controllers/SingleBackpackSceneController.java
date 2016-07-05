@@ -2,6 +2,7 @@ package gui.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import connection.ConnectionFacade;
 import entities.Params;
@@ -13,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
@@ -57,7 +59,6 @@ public class SingleBackpackSceneController extends AbstractController{
 	public void isChecked(){
 		checkBox1.setDisable(checkBox2.isSelected());
 		checkBox2.setDisable(checkBox1.isSelected());
-
 	}
 
 	@FXML
@@ -67,7 +68,7 @@ public class SingleBackpackSceneController extends AbstractController{
 	
 	@FXML
 	public void onSaveClicked(){
-		
+
 	}
 
 	@Override
@@ -79,6 +80,7 @@ public class SingleBackpackSceneController extends AbstractController{
 
 	@FXML
 	public void onCreatedClicked() throws ClassNotFoundException, SQLException{
+		tableThings.getItems().clear();
 		Params params = new Params()
 				.setPrecipitation(boxPrecipitation.getValue())
 				.setCountD(boxCountDays.getValue())
@@ -90,7 +92,8 @@ public class SingleBackpackSceneController extends AbstractController{
 		if(checkBox2.isSelected()){weight=weight/4;}
 		tableThings.setItems(ConnectionFacade.sortedObservableQuery(params));
 		rekvesbp.setText("Рекомендуемый вес рюкзака " + weight + " кг");
-		vespredbp.setText("Вес предложенного рюкзака " + ConnectionFacade.sumMass/1000  + " кг");
+		vespredbp.setText("Вес предложенного рюкзака " + ConnectionFacade.sumMass/1000 + " кг");
+		ConnectionFacade.sumMass = 0;
 	}
 	
 	@Override

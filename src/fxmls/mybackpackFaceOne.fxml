@@ -96,7 +96,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="fieldWeight" layoutX="9.0" layoutY="84.0" prefHeight="24.0" prefWidth="178.0" AnchorPane.leftAnchor="9.0" />
+                  <TextField fx:id="fieldWeight" layoutX="9.0" layoutY="84.0" prefHeight="24.0" Text="55" prefWidth="178.0" AnchorPane.leftAnchor="9.0" />
                   <CheckBox fx:id="checkBox1" layoutX="64.0" layoutY="114.0" mnemonicParsing="false" onAction="#isChecked" text="М">
                      <font>
                         <Font size="14.0" />
