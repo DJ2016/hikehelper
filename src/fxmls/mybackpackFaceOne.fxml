@@ -12,11 +12,11 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.collections.FXCollections?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.SingleBackpackSceneController">
+<AnchorPane prefHeight="550.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.SingleBackpackSceneController">
    <children>
-      <SplitPane dividerPositions="0.2819548872180451" layoutX="268.0" layoutY="211.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.3007518796992481" layoutX="268.0" layoutY="211.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="278.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="548.0" prefWidth="231.0">
                <children>
                   <Label layoutX="9.0" layoutY="186.0" text="Погода" AnchorPane.leftAnchor="9.0">
                      <font>
@@ -36,7 +36,7 @@
                   </Label>
                   <HBox layoutX="4.0" layoutY="84.0" spacing="5.0" AnchorPane.leftAnchor="5.0" />
                   <HBox layoutX="5.0" layoutY="333.0" spacing="5.0" AnchorPane.leftAnchor="5.0" />
-                  <Button layoutX="58.0" layoutY="466.0" mnemonicParsing="false" onAction="#onCreatedClicked" text="Составить список" />
+                  <Button layoutX="50.0" layoutY="510.0" mnemonicParsing="false" onAction="#onCreatedClicked" text="Составить список" AnchorPane.leftAnchor="50.0" />
                   <Label layoutX="10.0" layoutY="267.0" text="Атмосферные явления:" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="14.0" />
@@ -71,13 +71,11 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="fieldFrom" layoutX="39.0" layoutY="237.0" prefHeight="20.0" prefWidth="50.0" AnchorPane.leftAnchor="39.0" />
                   <Label layoutX="102.0" layoutY="239.0" text="до" AnchorPane.leftAnchor="102.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="fieldTo" layoutX="139.0" layoutY="237.0" prefHeight="20.0" prefWidth="50.0" AnchorPane.leftAnchor="139.0" />
                   <Label layoutX="12.0" layoutY="213.0" text="Диапазон температуры:" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="14.0" />
@@ -125,9 +123,21 @@
                 		</FXCollections>
             		</items>
         		</ChoiceBox>
+                  <ChoiceBox layoutX="128.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" />
+                  <ChoiceBox layoutX="34.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" />
+                  <Label layoutX="13.0" layoutY="449.0" text="Рекомендуемый вес рюкзака:" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="468.0" text="Вес предложенного рюкзака:" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="448.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="548.0" prefWidth="553.0">
                <children>
                   <Label layoutX="68.0" layoutY="39.0" text="Список" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0">
                      <font>
@@ -137,8 +147,8 @@
                   <HBox layoutX="50.0" layoutY="460.0" prefHeight="24.0" prefWidth="536.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0">
                      <children>
                         <TextField fx:id="saveField" prefHeight="24.0" prefWidth="90.0" />
-                        <Button onAction="#onSaveClicked" mnemonicParsing="false" text="Сохранить " />
-                        <Button onAction="#onCreateClicked" mnemonicParsing="false" text="Редактировать список" />
+                        <Button mnemonicParsing="false" onAction="#onSaveClicked" text="Сохранить " />
+                        <Button mnemonicParsing="false" onAction="#onCreateClicked" text="Редактировать список" />
                         <Button mnemonicParsing="false" onAction="#onSearchAtSportmasterClicked" text="Поиск товаров" />
                         <Button mnemonicParsing="false" onAction="#onReturnToMenuClicked" text="Вернуться в меню" />
                      </children>
