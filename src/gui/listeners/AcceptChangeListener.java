@@ -19,11 +19,21 @@ public class AcceptChangeListener<T, V> implements ChangeListener<V>{
 		this(arg, consumer);
 		consumer.accept(value, arg);
 	}
-	
+
+
 	@Override
 	public void changed(ObservableValue<? extends V> observable, V oldValue, V newValue) {
 		consumer.accept(observable.getValue(), object);
 		
+	}
+	
+	
+	public T getObject() {
+		return object;
+	}
+
+	public void setObject(T object) {
+		this.object = object;
 	}
 
 }
