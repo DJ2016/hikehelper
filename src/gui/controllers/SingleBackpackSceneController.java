@@ -80,7 +80,7 @@ public class SingleBackpackSceneController extends AbstractController{
 
 	@FXML
 	public void onCreateClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getCreateListFrame());
+		App.setFrame(FXMLFrameLoader.getCreateListFrame(), "Собери Рюкзак в поход!");
 	}
 	
 	private void FileSave(String fname) throws FileNotFoundException{

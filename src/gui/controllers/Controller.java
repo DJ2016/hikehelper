@@ -26,17 +26,17 @@ public class Controller implements FunctionalController<TextField>{
 	
 	@FXML
     public void onFindYourSelfListButtonClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getYourselfListFrame());
+		App.setFrame(FXMLFrameLoader.getYourselfListFrame(), "Собери Рюкзак в поход!");
     }
 	
 	@FXML
 	public void onFindTeamListClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getTeamListFrame());
+		App.setFrame(FXMLFrameLoader.getTeamListFrame(), "Собери Рюкзак в поход!");
 	}
 	
 	@FXML
 	public void onCreateListClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getCreateListFrame());;
+		App.setFrame(FXMLFrameLoader.getCreateListFrame(), "Собери Рюкзак в поход!");
 	}
 	
 	@Override

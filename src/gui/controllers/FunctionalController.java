@@ -28,7 +28,7 @@ public interface FunctionalController<T extends Node> extends Function<Functiona
 	 */
 	@FXML
 	public default void onSearchAtSportmasterClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getSportmasterFrame());
+		App.setFrame(FXMLFrameLoader.getSportmasterFrame(), "Собери Рюкзак в поход!");
 	}
 	
 	/**
@@ -38,7 +38,7 @@ public interface FunctionalController<T extends Node> extends Function<Functiona
 	 */
 	@FXML
 	public default void onReturnToMenuClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getMainFrame());
+		App.setFrame(FXMLFrameLoader.getMainFrame(), "Собери Рюкзак в поход!");
 	}
 	
 	
