@@ -121,7 +121,7 @@ public class SingleBackpackSceneController extends AbstractController{
 		int weight = Integer.parseInt(fieldWeight.getText());
 		if(checkBox1.isSelected()){weight = weight/3;}
 		if(checkBox2.isSelected()){weight=weight/4;}
-		tableThings.setItems(ConnectionFacade.sortedObservableQuery(params));
+		tableThings.setItems(ConnectionFacade.observableQuery(params));
 		rekvesbp.setText("Рекомендуемый вес рюкзака " + weight + " кг");
 		vespredbp.setText("Вес предложенного рюкзака " + ConnectionFacade.sumMass/1000 + " кг");
 		ConnectionFacade.sumMass = 0;
