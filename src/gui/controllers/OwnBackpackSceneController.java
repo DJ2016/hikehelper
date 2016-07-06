@@ -3,6 +3,7 @@ package gui.controllers;
 import java.util.Arrays;
 
 import entities.Things;
+import gui.listeners.AcceptChangeListener;
 import gui.listeners.EventMethodInvoker;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -36,7 +37,8 @@ public class OwnBackpackSceneController extends AbstractController {
 		addEmptyItems();
 		initColumns();
 		tableThings.setItems(things);
-		
+		nameInput.focusedProperty().addListener(new AcceptChangeListener<Node, Boolean>(quanInput, this::setNodeStyle, true));
+		quanInput.focusedProperty().addListener(new AcceptChangeListener<Node, Boolean>(nameInput, this::setNodeStyle, true));
 	}
 	
 	
