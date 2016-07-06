@@ -14,6 +14,7 @@ public class FXMLFrameLoader {
 	protected static final String teamListFramePath ="mybackpackFace.fxml";
 	protected static final String createListFramePath ="ownListFace.fxml";
 	protected static final String sportmasterFramePath ="sportmasterList.fxml";
+	protected static final String scrollingImageFramePath = "scrollingImage.fxml";
 	
 	public static Parent getMainFrame() throws IOException{
 		return getRoot(mainFramePath);
@@ -36,8 +37,13 @@ public class FXMLFrameLoader {
 		
 	}
 	
+	public static Parent getScrollingImageFrame() throws IOException{
+		return getRoot(scrollingImageFramePath);
+	}
+	
 	public static Parent getRoot(String frameName) throws IOException{
 		return FXMLLoader.load(App.class.getResource(folderName + frameName));
 	}
 	
+
 }
