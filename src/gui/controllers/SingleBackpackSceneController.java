@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 import connection.ConnectionFacade;
@@ -74,9 +75,8 @@ public class SingleBackpackSceneController extends AbstractController{
 	
 	@FXML
 	public void isChecked(){
-		checkBox1.setDisable(checkBox2.isSelected());
-		checkBox2.setDisable(checkBox1.isSelected());
-	}
+		Arrays.asList(checkBox1, checkBox2).forEach(c -> c.setSelected(c.isFocused()));
+    }
 
 	@FXML
 	public void onCreateClicked() throws IOException{
@@ -102,8 +102,7 @@ public class SingleBackpackSceneController extends AbstractController{
 	@Override
 	public void initialize() {
 		checkBox1.setSelected(true);
-		checkBox2.setDisable(true);
-		// TODO Auto-generated method stub
+		
 	}
 
 	@FXML
