@@ -83,9 +83,10 @@ public class Controller implements FunctionalController<TextField>{
 					scrollableStage.setResizable(false);
 					scrollableStage.sizeToScene();
 					scrollableStage.show();
-					scrollableStage.focusedProperty().addListener((obs, oldVal, newVal) -> {
+					scrollableStage.setAlwaysOnTop(true);
+					/*scrollableStage.focusedProperty().addListener((obs, oldVal, newVal) -> {
 						scrollableStage.close();
-					});
+					});*/
 					
 				} catch (IOException e) {
 					e.printStackTrace();
