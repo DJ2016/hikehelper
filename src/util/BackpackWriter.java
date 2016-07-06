@@ -19,7 +19,7 @@ public class BackpackWriter {
 	
 	public BackpackWriter() {}
 
-	private String dir = "/mybackpack";
+	private String dir = "mybackpack";
 	private ObservableList<String> list;
 	
 	public BackpackWriter setList(ObservableList<String> list) {
@@ -35,7 +35,7 @@ public class BackpackWriter {
 	private List<Things> things;
 	
 	public void ensureExists(){
-		File dir = new File("/mybackpack");
+		File dir = new File("mybackpack");
 		if(!dir.exists())
 			dir.mkdirs();
 	}
