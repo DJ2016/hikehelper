@@ -65,7 +65,9 @@ public class BackpackWriter {
 			String s;
 			while((s = bf.readLine())!=null){
 				if(!s.isEmpty())
-					things.add(new Things(s.split(" ")[0], s.split(" ")[1]));
+					if (s.contains(":"))
+							things.add(new Things(s.split(":")[0], s.split(":")[1]));
+					else things.add(new Things(s.split(" ")[0], s.split(" ")[1]));
 			}
 		}catch(IOException e){
 		}

@@ -1,8 +1,10 @@
 package gui.controllers;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -81,22 +83,17 @@ public class SingleBackpackSceneController extends AbstractController{
 		App.setFrame(FXMLFrameLoader.getCreateListFrame());
 	}
 	
-	private void FileSave(String fname){
+	private void FileSave(String fname) throws FileNotFoundException{
+	//	System.out.println(tableThings.getColumns().get(0).getCellData(4));
 		String f  = fullFname +fname;
-		try(FileWriter fileOut = new FileWriter(f)){
-			for(int i= 0; i < things.size(); i++){
-				if(!things.get(i).getThingName().isEmpty()){
-					fileOut.write(things.get(i).getThingName()+" ");
-					fileOut.write(things.get(i).getQuantity()+"\r\n");
-				}
-			}
-		}catch(IOException ex){
-			System.out.println("File write error.");
-		}
+		PrintWriter pw = new PrintWriter(new File(f));
+		tableThings.getItems().forEach(c -> pw.println(c.getThingName() + " : " + c.getValue()));
+		pw.close();
+		
 	}
 
 	@FXML
-	public void onSaveClicked(){
+	public void onSaveClicked() throws FileNotFoundException{
 		if(!fileNameInput.getText().isEmpty()){
 			FileSave(fileNameInput.getText());
 		}

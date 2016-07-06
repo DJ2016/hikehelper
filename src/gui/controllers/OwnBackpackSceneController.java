@@ -28,13 +28,15 @@ public class OwnBackpackSceneController extends AbstractController {
 	
 	@FXML @Override
 	public void initialize() {
+		writer.setList(fileList.getItems())
+		  	  .setThings(things);
+		
+		addListenerToListView();
 		writer.search();
 		addEmptyItems();
-		addListenerToListView();
 		initColumns();
 		tableThings.setItems(things);
-		writer.setList(fileList.getItems())
-			  .setThings(things);
+		
 	}
 	
 	
