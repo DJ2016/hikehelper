@@ -20,7 +20,7 @@
             <TextField fx:id="quanInput" layoutX="159.0" layoutY="115.0" prefHeight="24.0" prefWidth="61.0" promptText="Кол-во" AnchorPane.leftAnchor="159.0" />
          </children>
       </HBox>
-      <Label contentDisplay="CENTER" layoutX="298.0" layoutY="21.0" text="Мой Рюкзак" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <Label contentDisplay="CENTER" layoutX="298.0" layoutY="21.0" text="Мои Рюкзаки" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0">
          <font>
             <Font size="36.0" />
          </font>
