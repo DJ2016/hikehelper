@@ -74,12 +74,12 @@ public abstract class AbstractController implements FunctionalController<Node>{
 	}
 	
 	/**
-	 * @param value false - textfield text will changed on gray
+	 * @param value true - textfield text will changed on gray
 	 *              and on black otherwise
 	 */
 	protected void setNodeStyle(boolean value, Node field){
 		String style = "-fx-text-fill: ";
-		if (!value)
+		if (value)
 			style += "gray";
 		else style += "black";
 		field.setStyle(style);
