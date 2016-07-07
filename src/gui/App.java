@@ -38,7 +38,7 @@ public class App extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		App.stage = stage;
-		setFrame(FXMLFrameLoader.getMainFrame(), "Собери Рюкзак в поход!");
+		setFrame(FXMLFrameLoader.getMainFrame());
 		stage.setOnCloseRequest(confirmCloseEventHandler);
 		stage.getIcons().add(new Image("/gui/images/elka2.jpg"));
 		stage.setResizable(false);
@@ -55,7 +55,7 @@ public class App extends Application {
 	};
 
 	public static void setFrame(Parent root) throws IOException {
-		setFrame(root, "");
+		setFrame(root, title);
 	}
 
 	public static void setFrame(String frameName, String title) throws IOException {
@@ -67,6 +67,9 @@ public class App extends Application {
 		setFrame(frameName, "");
 	}
 
+	private static final String title = "Собери Рюкзак в поход!";
+
+	
 	public static void setFrame(Parent root, String title) throws IOException {
 		scene = new Scene(root);
 
