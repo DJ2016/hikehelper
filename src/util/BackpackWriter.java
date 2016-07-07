@@ -47,7 +47,7 @@ public class BackpackWriter {
 		try(FileWriter fileOut = new FileWriter(f)){
 			for(int i= 0; i < things.size(); i++){
 				if(!things.get(i).getThingName().isEmpty()){
-					fileOut.write(things.get(i).getThingName()+" ");
+					fileOut.write(things.get(i).getThingName()+" : ");
 					fileOut.write(things.get(i).getQuantity()+"\r\n");
 				}
 			}
