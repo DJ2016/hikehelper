@@ -135,7 +135,15 @@ public class SingleBackpackSceneController extends AbstractController{
 
 	@FXML
 	public void onCreatedClicked() throws ClassNotFoundException, SQLException, IOException{
-		if(!fieldWeight.getText().isEmpty() && !fieldAge.getText().isEmpty()){
+		int weight1 = Integer.parseInt(fieldWeight.getText());
+		int age1 = Integer.parseInt(fieldAge.getText());
+		if(weight1 <= 20){
+			new AutoShowableAlert("¬нимание!","¬ведите корректное значение веса");
+		}
+		if(age1 < 1){
+			new AutoShowableAlert("¬нимание!","¬ведите корректное значение возраста");
+		}
+		if(!fieldWeight.getText().isEmpty() && !fieldAge.getText().isEmpty() && age1 >= 1 && weight1 > 20){
 		tableThings.getItems().clear();
 		Params params = new Params()
 				.setPrecipitation(boxPrecipitation.getValue())
@@ -145,12 +153,6 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setTipeTp(boxTipeTp.getValue());
 		int weight = Integer.parseInt(fieldWeight.getText());
 		int age = Integer.parseInt(fieldAge.getText());
-		if(weight <= 20){
-			new AutoShowableAlert("¬нимание!","¬ведите корректное значение веса");
-		}
-		if(age < 1){
-			new AutoShowableAlert("¬нимание!","¬ведите корректное значение возраста");
-		}
 		if(checkBox1.isSelected()){weight = weight/3;}
 		if(checkBox2.isSelected()){weight=weight/4;}
 		tableThings.setItems(ConnectionFacade.observableQuery(params));
@@ -171,7 +173,7 @@ public class SingleBackpackSceneController extends AbstractController{
 			fieldWeight.setText("55");
 		}
 		else if(fieldAge.getText().isEmpty()){
-			new AutoShowableAlert("¬нимание!","¬ведите корректное значение веса");
+			new AutoShowableAlert("¬нимание!","¬ведите корректное значение возраста");
 			fieldAge.setText("25");
 		}
 
