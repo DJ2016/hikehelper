@@ -159,7 +159,7 @@ public class SingleBackpackSceneController extends AbstractController{
 		if(age < 12){
 			rekvesbp.setText("Рекомендуемый вес рюкзака " + age/2 + " кг");
 		}
-		if(age >= 12 && age < 18){
+		if(age > 12 && age < 18){
 			rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/1.5) + " кг");
 		}
 		else{
