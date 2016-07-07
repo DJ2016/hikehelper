@@ -17,8 +17,14 @@ import gui.App;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import java.util.Optional;
+
+import com.sun.glass.ui.Application;
+
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
@@ -81,7 +87,7 @@ public class SingleBackpackSceneController extends AbstractController{
 	public void isChecked(){
 		Arrays.asList(checkBox1, checkBox2).forEach(c -> c.setSelected(c.isFocused()));
     }
-
+	
 	@FXML
 	public void onCreateClicked() throws IOException{
 		App.setFrame(FXMLFrameLoader.getCreateListFrame(), "Собери Рюкзак в поход!");
@@ -93,14 +99,12 @@ public class SingleBackpackSceneController extends AbstractController{
 		PrintWriter pw = new PrintWriter(new File(f));
 		tableThings.getItems().forEach(c -> pw.println(c.getThingName() + " : " + c.getValue()));
 		pw.close();
-		
 	}
 
 	@FXML
 	public void onSaveClicked() throws IOException{
 		if (fileNameInput.getText().isEmpty()){
-			Alert alert = new Alert(AlertType.WARNING, "Введите имя файла для сохранения", ButtonType.OK);
-			Optional<ButtonType> result = alert.showAndWait();
+			new AutoShowableAlert("Внимание!","Введите имя сохраняемого файла");
 		}
 		if(!fileNameInput.getText().isEmpty()){
 			FileSave(fileNameInput.getText());
@@ -111,11 +115,41 @@ public class SingleBackpackSceneController extends AbstractController{
 	@Override
 	public void initialize() {
 		checkBox1.setSelected(true);
-		
+		 fieldWeight.textProperty().addListener(new ChangeListener<String>() {
+		        @Override
+		        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		            if (!newValue.matches("\\d*")) {
+		                fieldWeight.setText(newValue.replaceAll("[^\\d]", ""));
+		            }
+		        }
+		    });
+		 fieldAge.textProperty().addListener(new ChangeListener<String>() {
+		        @Override
+		        public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		            if (!newValue.matches("\\d*")) {
+		                fieldAge.setText(newValue.replaceAll("[^\\d]", ""));
+		            }
+		        }
+		    });
 	}
 
 	@FXML
-	public void onCreatedClicked() throws ClassNotFoundException, SQLException{
+	public void onCreatedClicked() throws ClassNotFoundException, SQLException, IOException{
+		if(fieldWeight.getText().isEmpty()){
+			fieldWeight.setText("0");
+		}
+		else if(fieldAge.getText().isEmpty()){
+			fieldAge.setText("0");
+		}
+		int weight1 = Integer.parseInt(fieldWeight.getText());
+		int age1 = Integer.parseInt(fieldAge.getText());
+		if(weight1 <= 20){
+			new AutoShowableAlert("Внимание!","Введите корректное значение веса");
+		}
+		if(age1 < 1){
+			new AutoShowableAlert("Внимание!","Введите корректное значение возраста");
+		}
+		if(!fieldWeight.getText().isEmpty() && !fieldAge.getText().isEmpty() && age1 >= 1 && weight1 > 20){
 		tableThings.getItems().clear();
 		Params params = new Params()
 				.setPrecipitation(boxPrecipitation.getValue())
@@ -123,15 +157,16 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setCountPR("1")
 				.setRange(fieldFrom.getValue())
 				.setTipeTp(boxTipeTp.getValue());
+
 		int weight = Integer.parseInt(fieldWeight.getText());
 		int age = Integer.parseInt(fieldAge.getText());
 		if(checkBox1.isSelected()){weight = weight/3;}
 		if(checkBox2.isSelected()){weight=weight/4;}
 		tableThings.setItems(ConnectionFacade.observableQuery(params));
 		if(age < 12){
-			rekvesbp.setText("Рекомендуемый вес рюкзака " + age/2 + " кг");
+			rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/2) + " кг");
 		}
-		if(age>=12 && age<18){
+		else if(age >= 12 && age < 18){
 			rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/1.5) + " кг");
 		}
 		else{
@@ -139,6 +174,7 @@ public class SingleBackpackSceneController extends AbstractController{
 		}
 		vespredbp.setText("Вес предложенного рюкзака " + ConnectionFacade.sumMass/1000 + " кг");
 		ConnectionFacade.sumMass = 0;
+		}			
 	}
 	
 	@Override

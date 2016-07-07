@@ -18,30 +18,30 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="548.0" prefWidth="231.0">
                <children>
-                  <TextField fx:id="fieldWeight" Text="55" layoutX="9.0" layoutY="84.0" prefHeight="24.0" prefWidth="178.0" AnchorPane.leftAnchor="9.0" />
-                  <CheckBox fx:id="checkBox1" layoutX="64.0" layoutY="114.0" mnemonicParsing="false" onAction="#isChecked" text="М">
+                  <Label layoutX="9.0" layoutY="186.0" text="Погода" AnchorPane.leftAnchor="9.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="5.0" layoutY="174.0" AnchorPane.leftAnchor="5.0" />
+                  <Label layoutX="10.0" layoutY="380.0" text="Количество дней" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="42.0" text="Параметры поиска" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="4.0" layoutY="84.0" spacing="5.0" AnchorPane.leftAnchor="5.0" />
+                  <HBox layoutX="5.0" layoutY="333.0" spacing="5.0" AnchorPane.leftAnchor="5.0" />
+                  <Button layoutX="50.0" layoutY="510.0" mnemonicParsing="false" onAction="#onCreatedClicked" text="Составить список" AnchorPane.leftAnchor="50.0" />
+                  <Label layoutX="10.0" layoutY="267.0" text="Атмосферные явления:" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </CheckBox>
-                  <CheckBox fx:id="checkBox2" layoutX="120.0" layoutY="114.0" mnemonicParsing="false" onAction="#isChecked" text="Ж">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </CheckBox>
-                  <TextField fx:id="fieldAge" layoutX="9.0" layoutY="162.0" prefHeight="24.0" prefWidth="178.0" AnchorPane.leftAnchor="9.0" />
-                  <ChoiceBox fx:id="fieldFrom" layoutX="10.0" layoutY="237.0" prefHeight="24.0" prefWidth="178.0" value="0-10">
-            		<items>
-                		<FXCollections fx:factory="observableArrayList">
-                    		<String fx:value="(-30)-(20)" />
-                    		<String fx:value="(-20)-(-10)" />
-                    		<String fx:value="(-10)-0" />
-                    		<String fx:value="0-10" />
-                    		<String fx:value="10-20" />
-                    		<String fx:value="20-30" />
-                		</FXCollections>
-            		</items>
-            	</ChoiceBox>
+                  </Label>
                   <ChoiceBox fx:id="boxPrecipitation" layoutX="13.0" layoutY="287.0" prefHeight="24.0" prefWidth="178.0" value="Ясно" AnchorPane.leftAnchor="10.0">
             		<items>
                 		<FXCollections fx:factory="observableArrayList">
@@ -61,49 +61,17 @@
                 		</FXCollections>
             		</items>
         		</ChoiceBox>
-                  <ChoiceBox fx:id="boxCountDays" layoutX="12.0" layoutY="407.0" prefHeight="24.0" prefWidth="54.0" value="1" AnchorPane.leftAnchor="10.0">
-            		<items>
-                		<FXCollections fx:factory="observableArrayList">
-                    		<String fx:value="1" />
-                    		<String fx:value="2" />
-                    		<String fx:value="3" />
-                    		<String fx:value="4" />
-                    		<String fx:value="5" />
-                    		<String fx:value="6" />
-                    		<String fx:value="7" />
-                    		<String fx:value="10" />
-                    		<String fx:value="14" />
-                		</FXCollections>
-            		</items>
-        		</ChoiceBox>
-                  <Button layoutX="50.0" layoutY="510.0" mnemonicParsing="false" onAction="#onCreatedClicked" text="Составить список" AnchorPane.leftAnchor="50.0" />
-                  <Label layoutX="9.0" layoutY="186.0" text="Погода" AnchorPane.leftAnchor="9.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <VBox layoutX="5.0" layoutY="174.0" AnchorPane.leftAnchor="5.0" />
-                  <Label layoutX="10.0" layoutY="380.0" text="Количество дней" AnchorPane.leftAnchor="10.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="20.0" layoutY="42.0" text="Параметры поиска" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="267.0" text="Атмосферные явления:" AnchorPane.leftAnchor="10.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
                   <Label layoutX="12.0" layoutY="320.0" text="Рельеф местности" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="7.0" layoutY="239.0" text="" AnchorPane.leftAnchor="10.0">
+                  <Label layoutX="7.0" layoutY="239.0" text="от" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="102.0" layoutY="239.0" text="до" AnchorPane.leftAnchor="102.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -127,11 +95,19 @@
                      <font>
                         <Font size="14.0" />
                      </font>
-<<<<<<< HEAD
                   </Label>
-=======
+                  <TextField fx:id="fieldWeight" layoutX="9.0" layoutY="84.0" prefHeight="24.0" Text="55" prefWidth="178.0" AnchorPane.leftAnchor="9.0" />
+                  <CheckBox fx:id="checkBox1" layoutX="64.0" layoutY="114.0" mnemonicParsing="false" onAction="#isChecked" text="М">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </CheckBox>
-                  <TextField fx:id="fieldAge" layoutX="9.0" layoutY="162.0" prefHeight="24.0" prefWidth="178.0" AnchorPane.leftAnchor="9.0" Text="25" />
+                  <CheckBox fx:id="checkBox2" layoutX="120.0" layoutY="114.0" mnemonicParsing="false" onAction="#isChecked" text="Ж">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField fx:id="fieldAge" layoutX="9.0" layoutY="162.0" prefHeight="24.0" prefWidth="178.0" AnchorPane.leftAnchor="9.0" />
                   <ChoiceBox fx:id="boxCountDays" layoutX="12.0" layoutY="407.0" prefHeight="24.0" prefWidth="54.0" value="1" AnchorPane.leftAnchor="10.0">
             		<items>
                 		<FXCollections fx:factory="observableArrayList">
@@ -147,19 +123,32 @@
                 		</FXCollections>
             		</items>
         		</ChoiceBox>
-                  <ChoiceBox fx:id="fieldFrom" layoutX="10.0" layoutY="237.0" prefHeight="24.0" prefWidth="178.0" value="0-10" >
+                  <ChoiceBox fx:id="fieldTo" layoutX="128.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" value="30" >
             		<items>
                 		<FXCollections fx:factory="observableArrayList">
-                    		<String fx:value="(-30)-(20)" />
-                    		<String fx:value="(-20)-(-10)" />
-                    		<String fx:value="(-10)-0" />
-                    		<String fx:value="0-10" />
-                    		<String fx:value="10-20" />
-                    		<String fx:value="20-30" />
+                    		<String fx:value="-30" />
+                    		<String fx:value="-20" />
+                    		<String fx:value="-10" />
+                    		<String fx:value="0" />
+                    		<String fx:value="10" />
+                    		<String fx:value="20" />
+                    		<String fx:value="30" />
                 		</FXCollections>
             		</items>
             	</ChoiceBox>
->>>>>>> origin/master
+                  <ChoiceBox fx:id="fieldFrom" layoutX="34.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" value="20" >
+            		<items>
+                		<FXCollections fx:factory="observableArrayList">
+                    		<String fx:value="-30" />
+                    		<String fx:value="-20" />
+                    		<String fx:value="-10" />
+                    		<String fx:value="0" />
+                    		<String fx:value="10" />
+                    		<String fx:value="20" />
+                    		<String fx:value="30" />
+                		</FXCollections>
+            		</items>
+            	</ChoiceBox>
                   <Label fx:id="rekvesbp" layoutX="13.0" layoutY="449.0" text="Рекомендуемый вес рюкзака:" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="13.0" />
@@ -179,10 +168,11 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <HBox layoutX="50.0" layoutY="460.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0">
+                  <HBox layoutX="50.0" layoutY="460.0" prefHeight="24.0" prefWidth="536.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0">
                      <children>
-                        <TextField fx:id="fileNameInput" prefWidth="100.0" promptText="Имя файла" />
-                        <Button mnemonicParsing="false" onAction="#onSaveClicked" text="Сохранить и редактировать" />
+                        <TextField fx:id="fileNameInput" prefHeight="24.0" prefWidth="90.0" />
+                        <Button mnemonicParsing="false" onAction="#onSaveClicked" text="Сохранить " />
+                        <Button mnemonicParsing="false" onAction="#onCreateClicked" text="Редактировать список" />
                         <Button mnemonicParsing="false" onAction="#onSearchAtSportmasterClicked" text="Поиск товаров" />
                         <Button mnemonicParsing="false" onAction="#onReturnToMenuClicked" text="Вернуться в меню" />
                      </children>
