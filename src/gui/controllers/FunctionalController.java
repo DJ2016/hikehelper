@@ -56,7 +56,7 @@ public interface FunctionalController<T extends Node> extends Function<Functiona
 	 * @param src for coordinates
 	 * @param msg message at tooltip
 	 */
-	public default void showTooltip(T src, String msg){
+	public default void showTooltip(String msg, T src){
 		Bounds bnds = src.getBoundsInParent();
 		Stage st = App.getStage();
 		tip.setText(msg);
