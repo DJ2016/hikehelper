@@ -124,10 +124,19 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setRange(fieldFrom.getValue())
 				.setTipeTp(boxTipeTp.getValue());
 		int weight = Integer.parseInt(fieldWeight.getText());
+		int age = Integer.parseInt(fieldAge.getText());
 		if(checkBox1.isSelected()){weight = weight/3;}
 		if(checkBox2.isSelected()){weight=weight/4;}
 		tableThings.setItems(ConnectionFacade.observableQuery(params));
+		if(age < 12){
+			rekvesbp.setText("Рекомендуемый вес рюкзака " + age/2 + " кг");
+		}
+		if(age>=12 && age<18){
+			rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/1.5) + " кг");
+		}
+		else{
 		rekvesbp.setText("Рекомендуемый вес рюкзака " + weight + " кг");
+		}
 		vespredbp.setText("Вес предложенного рюкзака " + ConnectionFacade.sumMass/1000 + " кг");
 		ConnectionFacade.sumMass = 0;
 	}
