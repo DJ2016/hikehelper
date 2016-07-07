@@ -37,10 +37,6 @@ public class Controller implements FunctionalController<Node>{
 		App.setFrame(FXMLFrameLoader.getYourselfListFrame());
     }
 	
-	@FXML
-	public void onFindTeamListClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getTeamListFrame());
-	}
 	
 	@FXML
 	public void onCreateListClicked() throws IOException{
