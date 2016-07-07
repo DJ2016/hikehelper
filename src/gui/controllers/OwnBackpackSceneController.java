@@ -37,8 +37,8 @@ public class OwnBackpackSceneController extends AbstractController {
 		addEmptyItems();
 		initColumns();
 		tableThings.setItems(things);
-		nameInput.focusedProperty().addListener(new AcceptChangeListener<Node, Boolean>(quanInput, this::setNodeStyle, true));
-		quanInput.focusedProperty().addListener(new AcceptChangeListener<Node, Boolean>(nameInput, this::setNodeStyle, true));
+		//nameInput.focusedProperty().addListener(new AcceptChangeListener<Node, Boolean>(quanInput, this::setNodeStyle, true));
+		//quanInput.focusedProperty().addListener(new AcceptChangeListener<Node, Boolean>(nameInput, this::setNodeStyle, true));
 	}
 	
 	

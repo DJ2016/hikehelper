@@ -8,13 +8,17 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
-
+import javafx.scene.control.Alert.AlertType;
 import connection.ConnectionFacade;
 import entities.Params;
 import entities.Things;
 import fxmls.FXMLFrameLoader;
 import gui.App;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.fxml.FXML;
+import java.util.Optional;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
@@ -93,9 +97,14 @@ public class SingleBackpackSceneController extends AbstractController{
 	}
 
 	@FXML
-	public void onSaveClicked() throws FileNotFoundException{
+	public void onSaveClicked() throws IOException{
+		if (fileNameInput.getText().isEmpty()){
+			Alert alert = new Alert(AlertType.WARNING, "Введите имя файла для сохранения", ButtonType.OK);
+			Optional<ButtonType> result = alert.showAndWait();
+		}
 		if(!fileNameInput.getText().isEmpty()){
 			FileSave(fileNameInput.getText());
+			App.setFrame(FXMLFrameLoader.getCreateListFrame());
 		}
 	}
 
