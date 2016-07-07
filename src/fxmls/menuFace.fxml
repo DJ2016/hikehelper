@@ -21,7 +21,7 @@
             <Button fx:id="findYourSelfList" layoutX="176.0" layoutY="99.0" mnemonicParsing="false" onAction="#onFindYourSelfListButtonClicked" prefHeight="24.0" prefWidth="185.0" text="Получить готовый список" />
             <Button fx:id="createList" layoutX="176.0" layoutY="150.0" mnemonicParsing="false" onAction="#onCreateListClicked" prefHeight="24.0" prefWidth="185.0" text="Составить свой список" />
             <Button fx:id="searchOnSportmaster" layoutX="175.0" layoutY="203.0" mnemonicParsing="false" onAction="#onSearchAtSportmasterClicked" prefHeight="24.0" prefWidth="185.0" text="Поиск вещей в СпортМастер" />
-            <Button fx:id="createList2" layoutX="176.0" layoutY="225.0" mnemonicParsing="false" onAction="#onCreateListClicked" prefHeight="24.0" prefWidth="185.0" text="Мои рюкзаки" />
+            <Button fx:id="createList2" layoutX="176.0" layoutY="225.0" mnemonicParsing="false" onAction="#onCreateListClicked" prefHeight="24.0" prefWidth="185.0" text="Открыть мой рюкзак" />
          </children>
       </VBox>
    </children>
