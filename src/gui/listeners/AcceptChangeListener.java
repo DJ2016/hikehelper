@@ -24,7 +24,7 @@ public class AcceptChangeListener<T, V> implements ChangeListener<V>{
 	@Override
 	public void changed(ObservableValue<? extends V> observable, V oldValue, V newValue) {
 		consumer.accept(observable.getValue(), object);
-		
+
 	}
 	
 	

@@ -73,6 +73,10 @@ public class OwnBackpackSceneController extends AbstractController {
 	
 	@FXML
 	private void saveClickedButton(){
+		if (fileNameInput.getText().isEmpty()){
+			new AutoShowableAlert("Введите имя рюкзака", "Имя рюкзака не заполнено");
+			return;
+		}
 		writer.save(fileNameInput.getText());
 	}
 	@FXML
