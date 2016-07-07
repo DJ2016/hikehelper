@@ -136,7 +136,16 @@ public class SingleBackpackSceneController extends AbstractController{
 	@FXML
 	public void onCreatedClicked() throws ClassNotFoundException, SQLException, IOException{
 		
-		if(!fieldWeight.getText().isEmpty() && !fieldAge.getText().isEmpty() && age1 >= 1 && weight1 > 20){
+		if(fieldWeight.getText().isEmpty()){fieldWeight.setText("0");}
+		else if(fieldAge.getText().isEmpty()){fieldAge.setText("0");}
+		
+		int weight1 = Integer.parseInt(fieldWeight.getText());
+		int age1 = Integer.parseInt(fieldAge.getText());
+		
+		if(weight1 <= 15){new AutoShowableAlert("¬нимание!","¬ведите корректное значение веса");}
+		if(age1 < 5){new AutoShowableAlert("¬нимание!","¬ведите корректное значение возраста");}
+		
+		if(!fieldWeight.getText().isEmpty() && !fieldAge.getText().isEmpty() && age1 >= 5 && weight1 > 15){
 		tableThings.getItems().clear();
 		Params params = new Params()
 				.setPrecipitation(boxPrecipitation.getValue())
@@ -144,15 +153,6 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setCountPR("1")
 				.setRange(fieldFrom.getValue())
 				.setTipeTp(boxTipeTp.getValue());
-		
-		if(fieldWeight.getText().isEmpty()){fieldWeight.setText("55");}
-		else if(fieldAge.getText().isEmpty()){fieldAge.setText("25");}
-		
-		int weight1 = Integer.parseInt(fieldWeight.getText());
-		int age1 = Integer.parseInt(fieldAge.getText());
-		
-		if(weight1 <= 20){new AutoShowableAlert("¬нимание!","¬ведите корректное значение веса");}
-		if(age1 < 1){new AutoShowableAlert("¬нимание!","¬ведите корректное значение возраста");}
 
 		int weight = Integer.parseInt(fieldWeight.getText());
 		int age = Integer.parseInt(fieldAge.getText());
