@@ -135,9 +135,7 @@ public class SingleBackpackSceneController extends AbstractController{
 
 	@FXML
 	public void onCreatedClicked() throws ClassNotFoundException, SQLException, IOException{
-		int weight = Integer.parseInt(fieldWeight.getText());
-		int age = Integer.parseInt(fieldAge.getText());
-		if(!fieldWeight.getText().isEmpty() && !fieldAge.getText().isEmpty() && weight > 20 && age >= 1){
+		if(!fieldWeight.getText().isEmpty() && !fieldAge.getText().isEmpty()){
 		tableThings.getItems().clear();
 		Params params = new Params()
 				.setPrecipitation(boxPrecipitation.getValue())
@@ -145,7 +143,8 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setCountPR("1")
 				.setRange(fieldFrom.getValue())
 				.setTipeTp(boxTipeTp.getValue());
-
+		int weight = Integer.parseInt(fieldWeight.getText());
+		int age = Integer.parseInt(fieldAge.getText());
 		if(weight <= 20){
 			new AutoShowableAlert("Внимание!","Введите корректное значение веса");
 		}
@@ -158,7 +157,7 @@ public class SingleBackpackSceneController extends AbstractController{
 		if(age < 12){
 			rekvesbp.setText("Рекомендуемый вес рюкзака " + age/2 + " кг");
 		}
-		if(age > 12 && age < 18){
+		if(age >= 12 && age < 18){
 			rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/1.5) + " кг");
 		}
 		else{
