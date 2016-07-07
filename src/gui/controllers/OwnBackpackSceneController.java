@@ -83,6 +83,7 @@ public class OwnBackpackSceneController extends AbstractController {
 	private void deleteListFileElement(){
 		writer.delete(fileSelectedName);
 		fileNameInput.clear();
+		tableThings.getItems().clear();
 	}
 	
 	
