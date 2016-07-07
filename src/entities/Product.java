@@ -1,5 +1,6 @@
 package entities;
 
+import javafx.scene.image.Image;
 
 public class Product implements Comparable<Product>{
 
@@ -23,6 +24,7 @@ public class Product implements Comparable<Product>{
 	private String imgsource;
 	private String productID;
 	
+
 
 	public String getName() {
 		return name;
@@ -63,4 +65,9 @@ public class Product implements Comparable<Product>{
 	public int compareTo(Product arg0) {
 		return Integer.parseInt(getPrice()) - Integer.parseInt(arg0.getPrice());
 	}
+
+	public Image getImage(){
+		return new Image(imgsource);
+	}
+
 }
