@@ -136,16 +136,34 @@ public class SingleBackpackSceneController extends AbstractController{
 	@FXML
 	public void onCreatedClicked() throws ClassNotFoundException, SQLException, IOException{
 		
-		if(fieldWeight.getText().isEmpty()){fieldWeight.setText("0");}
-		else if(fieldAge.getText().isEmpty()){fieldAge.setText("0");}
+		if (fieldWeight.getText().length() >= 6 ||
+			fieldAge.getText().length() >= 6){
+			new AutoShowableAlert("","Введите корректные данные");
+			return;
+		}
 		
-		int weight1 = Integer.parseInt(fieldWeight.getText());
-		int age1 = Integer.parseInt(fieldAge.getText());
+		if(fieldWeight.getText().isEmpty()){
+			new AutoShowableAlert("","Введите вес");
+			return;
+		}
+		if(fieldAge.getText().isEmpty()){
+			new AutoShowableAlert("","Введите возраст");
+			return;
+		}
+	
 		
-		if(weight1 <= 15){new AutoShowableAlert("Внимание!","Введите корректное значение веса");}
-		if(age1 < 5){new AutoShowableAlert("Внимание!","Введите корректное значение возраста");}
+		int weight = Integer.parseInt(fieldWeight.getText());
+		int age = Integer.parseInt(fieldAge.getText());
 		
-		if(!fieldWeight.getText().isEmpty() && !fieldAge.getText().isEmpty() && age1 >= 5 && weight1 > 15){
+		if(weight <= 15){
+			new AutoShowableAlert("Внимание!","Введите корректное значение веса");
+			return;
+		}
+		if(age < 5){
+			new AutoShowableAlert("Внимание!","Введите корректное значение возраста");
+			return;
+		}
+		
 		tableThings.getItems().clear();
 		Params params = new Params()
 				.setPrecipitation(boxPrecipitation.getValue())
@@ -154,11 +172,10 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setRange(fieldFrom.getValue())
 				.setTipeTp(boxTipeTp.getValue());
 
-		int weight = Integer.parseInt(fieldWeight.getText());
-		int age = Integer.parseInt(fieldAge.getText());
+
 		
-		if(checkBox1.isSelected()){weight = weight/3;}
-		if(checkBox2.isSelected()){weight=weight/4;}
+		if(checkBox1.isSelected()){weight = weight / 3;}
+		if(checkBox2.isSelected()){weight=weight / 4;}
 		
 		tableThings.setItems(ConnectionFacade.observableQuery(params));
 		
@@ -166,9 +183,7 @@ public class SingleBackpackSceneController extends AbstractController{
 		else if(age >= 12 && age < 18){rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/1.5) + " кг");}
 		else{rekvesbp.setText("Рекомендуемый вес рюкзака " + weight + " кг");}
 		
-		vespredbp.setText("Вес предложенного рюкзака " + ConnectionFacade.sumMass/1000 + " кг");
-		ConnectionFacade.sumMass = 0;
-		}			
+		vespredbp.setText("Вес предложенного рюкзака " + ConnectionFacade.sumMass/1000 + " кг");	
 	}
 	
 	@Override
