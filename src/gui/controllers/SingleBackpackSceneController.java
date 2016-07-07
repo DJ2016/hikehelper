@@ -135,20 +135,7 @@ public class SingleBackpackSceneController extends AbstractController{
 
 	@FXML
 	public void onCreatedClicked() throws ClassNotFoundException, SQLException, IOException{
-		if(fieldWeight.getText().isEmpty()){
-			fieldWeight.setText("0");
-		}
-		else if(fieldAge.getText().isEmpty()){
-			fieldAge.setText("0");
-		}
-		int weight1 = Integer.parseInt(fieldWeight.getText());
-		int age1 = Integer.parseInt(fieldAge.getText());
-		if(weight1 <= 20){
-			new AutoShowableAlert("Внимание!","Введите корректное значение веса");
-		}
-		if(age1 < 1){
-			new AutoShowableAlert("Внимание!","Введите корректное значение возраста");
-		}
+		
 		if(!fieldWeight.getText().isEmpty() && !fieldAge.getText().isEmpty() && age1 >= 1 && weight1 > 20){
 		tableThings.getItems().clear();
 		Params params = new Params()
@@ -157,21 +144,28 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setCountPR("1")
 				.setRange(fieldFrom.getValue())
 				.setTipeTp(boxTipeTp.getValue());
+		
+		if(fieldWeight.getText().isEmpty()){fieldWeight.setText("55");}
+		else if(fieldAge.getText().isEmpty()){fieldAge.setText("25");}
+		
+		int weight1 = Integer.parseInt(fieldWeight.getText());
+		int age1 = Integer.parseInt(fieldAge.getText());
+		
+		if(weight1 <= 20){new AutoShowableAlert("Внимание!","Введите корректное значение веса");}
+		if(age1 < 1){new AutoShowableAlert("Внимание!","Введите корректное значение возраста");}
 
 		int weight = Integer.parseInt(fieldWeight.getText());
 		int age = Integer.parseInt(fieldAge.getText());
+		
 		if(checkBox1.isSelected()){weight = weight/3;}
 		if(checkBox2.isSelected()){weight=weight/4;}
+		
 		tableThings.setItems(ConnectionFacade.observableQuery(params));
-		if(age < 12){
-			rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/2) + " кг");
-		}
-		else if(age >= 12 && age < 18){
-			rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/1.5) + " кг");
-		}
-		else{
-		rekvesbp.setText("Рекомендуемый вес рюкзака " + weight + " кг");
-		}
+		
+		if(age < 12){rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/2) + " кг");}
+		else if(age >= 12 && age < 18){rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/1.5) + " кг");}
+		else{rekvesbp.setText("Рекомендуемый вес рюкзака " + weight + " кг");}
+		
 		vespredbp.setText("Вес предложенного рюкзака " + ConnectionFacade.sumMass/1000 + " кг");
 		ConnectionFacade.sumMass = 0;
 		}			
