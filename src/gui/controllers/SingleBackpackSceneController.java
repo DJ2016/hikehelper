@@ -157,9 +157,9 @@ public class SingleBackpackSceneController extends AbstractController{
 		if(checkBox2.isSelected()){weight=weight/4;}
 		tableThings.setItems(ConnectionFacade.observableQuery(params));
 		if(age < 12){
-			rekvesbp.setText("Рекомендуемый вес рюкзака " + age/2 + " кг");
+			rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/2) + " кг");
 		}
-		if(age > 12 && age < 18){
+		else if(age >= 12 && age < 18){
 			rekvesbp.setText("Рекомендуемый вес рюкзака " + (int)(age/1.5) + " кг");
 		}
 		else{
