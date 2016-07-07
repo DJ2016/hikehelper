@@ -66,7 +66,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="7.0" layoutY="239.0" text="от" AnchorPane.leftAnchor="10.0">
+                  <Label layoutX="7.0" layoutY="239.0" text="" AnchorPane.leftAnchor="10.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -123,29 +123,15 @@
                 		</FXCollections>
             		</items>
         		</ChoiceBox>
-                  <ChoiceBox fx:id="fieldTo" layoutX="128.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" value="30" >
+                  <ChoiceBox fx:id="fieldFrom" layoutX="10.0" layoutY="237.0" prefHeight="24.0" prefWidth="178.0" value="0-10" >
             		<items>
                 		<FXCollections fx:factory="observableArrayList">
-                    		<String fx:value="-30" />
-                    		<String fx:value="-20" />
-                    		<String fx:value="-10" />
-                    		<String fx:value="0" />
-                    		<String fx:value="10" />
-                    		<String fx:value="20" />
-                    		<String fx:value="30" />
-                		</FXCollections>
-            		</items>
-            	</ChoiceBox>
-                  <ChoiceBox fx:id="fieldFrom" layoutX="34.0" layoutY="237.0" prefHeight="24.0" prefWidth="60.0" value="20" >
-            		<items>
-                		<FXCollections fx:factory="observableArrayList">
-                    		<String fx:value="-30" />
-                    		<String fx:value="-20" />
-                    		<String fx:value="-10" />
-                    		<String fx:value="0" />
-                    		<String fx:value="10" />
-                    		<String fx:value="20" />
-                    		<String fx:value="30" />
+                    		<String fx:value="(-30)-(20)" />
+                    		<String fx:value="(-20)-(-10)" />
+                    		<String fx:value="(-10)-0)" />
+                    		<String fx:value="0-10" />
+                    		<String fx:value="10-20" />
+                    		<String fx:value="20-30" />
                 		</FXCollections>
             		</items>
             	</ChoiceBox>
