@@ -128,7 +128,7 @@
                 		<FXCollections fx:factory="observableArrayList">
                     		<String fx:value="(-30)-(20)" />
                     		<String fx:value="(-20)-(-10)" />
-                    		<String fx:value="(-10)-0)" />
+                    		<String fx:value="(-10)-0" />
                     		<String fx:value="0-10" />
                     		<String fx:value="10-20" />
                     		<String fx:value="20-30" />

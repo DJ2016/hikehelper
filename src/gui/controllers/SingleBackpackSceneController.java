@@ -112,7 +112,7 @@ public class SingleBackpackSceneController extends AbstractController{
 				.setPrecipitation(boxPrecipitation.getValue())
 				.setCountD(boxCountDays.getValue())
 				.setCountPR("1")
-				.setRange(fieldFrom.getValue() + "-" + fieldTo.getValue())
+				.setRange(fieldFrom.getValue())
 				.setTipeTp(boxTipeTp.getValue());
 		int weight = Integer.parseInt(fieldWeight.getText());
 		if(checkBox1.isSelected()){weight = weight/3;}
