@@ -62,7 +62,7 @@ public class ConnectionFacade{
 	
 	private static void query(List<Things> list, String tableName, Params params) throws ClassNotFoundException, SQLException{
 		connect();
-		
+		sumMass = 0;
 		set = statement.executeQuery(
 				"SELECT DISTINCT " + columnName + ", "+ columnValue + ", " + columnMass +" FROM " + tableName + " "
 					+ "left join Weather on Things.idThing = Weather.idThing "
