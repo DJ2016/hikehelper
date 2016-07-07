@@ -30,20 +30,21 @@ public class Controller implements FunctionalController<Node>{
 	@FXML private ImageView imgView;
 	@FXML private Button left;
 	@FXML private Button right;
-
+	@FXML private Label labelProductName;
+	
 	@FXML
     public void onFindYourSelfListButtonClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getYourselfListFrame(), "Собери Рюкзак в поход!");
+		App.setFrame(FXMLFrameLoader.getYourselfListFrame());
     }
 	
 	@FXML
 	public void onFindTeamListClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getTeamListFrame(), "Собери Рюкзак в поход!");
+		App.setFrame(FXMLFrameLoader.getTeamListFrame());
 	}
 	
 	@FXML
 	public void onCreateListClicked() throws IOException{
-		App.setFrame(FXMLFrameLoader.getCreateListFrame(), "Собери Рюкзак в поход!");
+		App.setFrame(FXMLFrameLoader.getCreateListFrame());
 	}
 	
 	@Override
@@ -78,17 +79,19 @@ public class Controller implements FunctionalController<Node>{
 	}
 	private void update(){
 		ensureBounds();
-		update(tableView.getItems().get(index));
+		update(items.get(index));
+		model.select(index);
 	}
 	private void update(Product p){
 		imgView.setImage(p.getImage());
 		label.setText(p.getPrice() + "р");
+		labelProductName.setText(p.getName());
 	}
 	
 	private void ensureBounds(){
 		if (index < 0)
-			index = tableView.getItems().size() - 1;
-		if (index == tableView.getItems().size())
+			index = items.size() - 1;
+		if (index == items.size())
 			index = 0;
 	}
 	
@@ -96,11 +99,12 @@ public class Controller implements FunctionalController<Node>{
 		if (forward) index += 1;
 		else index -= 1;
 	}
-	
+	private ObservableList<Product> items;
 	private int index;
-	
+	private TableView.TableViewSelectionModel<Product> model;
 	@FXML
 	public void onSearchedClicked() throws IOException{
+		tableView.getItems().clear();
 		index = 0;
 		String str = searchField.getText();
 		
@@ -108,18 +112,19 @@ public class Controller implements FunctionalController<Node>{
 		
 		if (consumer.requireNullOr(new Pair<>("Заполните это поле", searchField), str, str.isEmpty())) return;
 		
-		ObservableList<Product> list = SportmasterParser.defaultSortedObservableQuery(str);
+		items = SportmasterParser.defaultSortedObservableQuery(str);
 		
-		if (consumer.requireNullOr(new Pair<>("Извините, товар временно отсутствует", imgView), list, list.isEmpty())) return;
+		if (consumer.requireNullOr(new Pair<>("Извините, товар временно отсутствует", imgView), items, items.isEmpty())) return;
 		
-		tableView.setItems(list);
-		Arrays.asList(tableView, left, right).forEach(c -> c.setVisible(true));
-		update(list.get(index));
-		
-		tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Product>() {
+		tableView.setItems(items);
+		Arrays.asList(left, right, label, labelProductName).forEach(c -> c.setVisible(true));
+		model = tableView.getSelectionModel();
+		update(items.get(index));
+		model.selectedItemProperty().addListener(new ChangeListener<Product>() {
 			@Override
 			public void changed(ObservableValue<? extends Product> observable, Product oldValue, Product newValue) {
 				update(observable.getValue());
+				index = model.getSelectedIndex();
 			}
 		});
 	}

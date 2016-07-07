@@ -46,14 +46,15 @@
       <Button fx:id="returnToMenu" layoutX="686.0" layoutY="574.0" mnemonicParsing="false" onAction="#onReturnToMenuClicked" text="Вернуться в меню" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="6.0" />
       <HBox alignment="CENTER" layoutX="466.0" layoutY="80.0" prefHeight="289.0" prefWidth="329.0" AnchorPane.leftAnchor="466.0" AnchorPane.rightAnchor="5.0">
          <children>
-            <ImageView fx:id = "imgView" fitHeight="236.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgView" fitHeight="236.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
       
       <Button fx:id="left" layoutX="460.0" layoutY="430.0" mnemonicParsing="false" onAction="#onLeftClicked" text="Предыдущая" visible="false" AnchorPane.leftAnchor="460.0" />
       <Button fx:id="right" layoutX="705.0" layoutY="430.0" mnemonicParsing="false" onAction="#onRightClicked" text="Следующая" visible="false" AnchorPane.rightAnchor="10.0" />
-      <Label fx:id="label" layoutX="615.0" layoutY="434.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="40.0">
+      <Label fx:id="label" layoutX="615.0" visible = "false" layoutY="434.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="40.0">
       </Label>
+      <Label fx:id = "labelProductName" alignment="CENTER" visible = "false" layoutX="456.0" layoutY="53.0" prefHeight="16.0" prefWidth="329.0" AnchorPane.rightAnchor="5.0" />
       
    </children>
 </AnchorPane>
