@@ -19,7 +19,15 @@ public class BackpackWriter {
 	
 	public BackpackWriter() {}
 
-	private String dir = "mybackpack";
+	private static String dir = "mybackpack";
+	public static String getDir() {
+		return dir;
+	}
+
+	public static void setDir(String dir) {
+		BackpackWriter.dir = dir;
+	}
+
 	private ObservableList<String> list;
 	
 	public BackpackWriter setList(ObservableList<String> list) {
