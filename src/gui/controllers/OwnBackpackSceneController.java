@@ -1,5 +1,8 @@
 package gui.controllers;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 
 import entities.Things;
@@ -70,6 +73,17 @@ public class OwnBackpackSceneController extends AbstractController {
 	
 
 
+	@FXML
+	private void openExplorer() throws IOException{
+		String path = BackpackWriter.getDir();
+		Desktop desktop = null;
+		if (Desktop.isDesktopSupported()) {
+		    desktop = Desktop.getDesktop();
+		}
+		if (path == null || path.isEmpty() || desktop == null)
+			return;
+		desktop.open(new File(path));
+	}
 	
 	@FXML
 	private void saveClickedButton(){
