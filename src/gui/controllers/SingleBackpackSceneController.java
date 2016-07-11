@@ -22,6 +22,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import java.util.Optional;
+import util.BackpackWriter;
 
 import com.sun.glass.ui.Application;
 
@@ -81,7 +82,7 @@ public class SingleBackpackSceneController extends AbstractController{
 	private TableColumn<Things,String> quanColumn;
 	
 	final String fullFname =  "mybackpack/";
-	
+	private BackpackWriter writer = new BackpackWriter();
 	
 	@FXML
 	public void isChecked(){
@@ -107,6 +108,7 @@ public class SingleBackpackSceneController extends AbstractController{
 			new AutoShowableAlert("Внимание!","Введите имя сохраняемого файла");
 		}
 		if(!fileNameInput.getText().isEmpty()){
+			writer.ensureExists();
 			FileSave(fileNameInput.getText());
 			App.setFrame(FXMLFrameLoader.getCreateListFrame());
 		}
