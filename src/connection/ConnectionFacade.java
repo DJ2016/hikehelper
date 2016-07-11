@@ -25,7 +25,7 @@ public class ConnectionFacade{
 	private static final String dbname = "BDSS.db";
 	protected static void connect() throws ClassNotFoundException, SQLException {
 		Class.forName("org.sqlite.JDBC");
-		connection = DriverManager.getConnection("jdbc:sqlite:resources/" + dbname);
+		connection = DriverManager.getConnection("jdbc:sqlite:" + dbname);
 		statement = connection.createStatement();
 	}
 
