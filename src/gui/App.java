@@ -17,6 +17,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Pair;
+import java.io.File;
 
 public class App extends Application {
 
@@ -32,6 +33,8 @@ public class App extends Application {
 	}
 
 	public static void main(String[] args) {
+		File dir = new File("mybackpack");
+		dir.mkdir();
 		launch(args);
 	}
 
